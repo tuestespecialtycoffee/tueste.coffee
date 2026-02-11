@@ -1,0 +1,2058 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Tueste Specialty Coffee. Café de especialidad con identidad propia."
+    />
+    <title>Tueste Specialty Coffee</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=Noto+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cafe: #4c3524;
+        --castano: #b68150;
+        --crema: #ebc7a3;
+        --crema-light: #f5ede4;
+        --tostado: #2b1f17;
+        --madera: #7a4f2b;
+        --white: #ffffff;
+        --text: #2c2418;
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 1rem;
+        --space-4: 1.5rem;
+        --space-5: 2rem;
+        --space-6: 3rem;
+        --space-7: 4rem;
+        color-scheme: light;
+        font-family: "Noto Sans", system-ui, sans-serif;
+        line-height: 1.6;
+        background: var(--crema-light);
+        color: var(--text);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(245, 237, 228, 0.86);
+        backdrop-filter: blur(0.625rem);
+        border-bottom: 0.0625rem solid rgba(182, 129, 80, 0.2);
+        z-index: 10;
+      }
+      .container {
+        width: min(100%, 68.75rem);
+        margin: 0 auto;
+        padding: 1.25rem 1.5rem;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.125rem;
+        font-size: 0.875rem;
+        color: var(--castano);
+      }
+      .nav-links a {
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+      .nav-links a:hover {
+        background: rgba(76, 53, 36, 0.08);
+        color: var(--cafe);
+      }
+      .nav-links a:active {
+        transform: translateY(0.0625rem);
+      }
+      .nav-links a:focus-visible {
+        outline: 0.125rem solid rgba(235, 199, 163, 0.6);
+        outline-offset: 0.125rem;
+      }
+      .logo-img {
+        max-height: 3rem;
+        height: auto;
+        width: auto;
+        display: block;
+      }
+      .logo-wrap {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.375rem 0.625rem;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        border: 0.0625rem solid rgba(76, 53, 36, 0.25);
+        border-radius: 0.375rem;
+        background: rgba(255, 255, 255, 0.4);
+        color: var(--tostado);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .hero {
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(182, 129, 80, 0.35),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 80% 0%,
+            rgba(76, 53, 36, 0.35),
+            transparent 45%
+          ),
+          linear-gradient(135deg, #f6efe6 0%, #e6d1b8 60%, #d2b08e 100%);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2.5rem;
+        align-items: center;
+        padding: 3.125rem 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "STIX Two Text", serif;
+        color: var(--cafe);
+        margin: 0 0 0.75rem 0;
+      }
+      h1 {
+        font-size: 2.75rem;
+        line-height: 1.2;
+      }
+      .lead {
+        font-size: 1.125rem;
+        color: var(--madera);
+        margin-bottom: 1.75rem;
+      }
+      .cta {
+        display: inline-block;
+        background: var(--cafe);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      .cta:hover {
+        background: #3b2a1e;
+        transform: translateY(-0.0625rem);
+      }
+      .cta:active {
+        transform: translateY(0);
+      }
+      .cta:focus-visible {
+        outline: 0.125rem solid rgba(235, 199, 163, 0.6);
+        outline-offset: 0.125rem;
+      }
+      .card {
+        background: var(--white);
+        border: 0.0625rem solid rgba(76, 53, 36, 0.1);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 0.5rem 1.25rem rgba(76, 53, 36, 0.08);
+      }
+      .hero-visual {
+        background: linear-gradient(160deg, #1f1510 0%, #3b2a1e 55%, #6b4426 100%);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        color: #f7efe7;
+        min-height: 20rem;
+        display: grid;
+        gap: 1rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 3rem rgba(26, 18, 13, 0.4);
+      }
+      .hero-visual h3 {
+        color: #fff6ec;
+        text-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.35);
+      }
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.12),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 85% 80%,
+            rgba(235, 199, 163, 0.25),
+            transparent 55%
+          );
+        pointer-events: none;
+      }
+      .image-placeholder {
+        position: relative;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        background: linear-gradient(135deg, #2a1d16 0%, #4c3524 45%, #7a4f2b 100%);
+        min-height: 11.25rem;
+        color: #f7efe7;
+        display: grid;
+        place-items: center;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.6875rem;
+      }
+      .image-placeholder::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.12), transparent 45%),
+          radial-gradient(circle at 80% 70%, rgba(235, 199, 163, 0.25), transparent 50%);
+      }
+      .image-placeholder span {
+        position: relative;
+        z-index: 1;
+      }
+      .photo-frame {
+        position: relative;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        background: #1a120e;
+        min-height: 11.25rem;
+      }
+      .photo-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .about-photo .photo-frame {
+        background: #1a120e;
+        height: auto;
+      }
+      .about-photo img {
+        height: auto;
+        object-fit: contain;
+        background: #1a120e;
+      }
+      .hero-photo {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+      }
+      .hero-photo img {
+        object-position: center;
+      }
+      .grain-banner {
+        margin-top: 2rem;
+        border-radius: 0.875rem;
+        padding: 1.25rem 1.5rem;
+        background: linear-gradient(120deg, #1a120e 0%, #2b1f17 55%, #3a2a20 100%);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        color: #f2e8df;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .grain-banner strong {
+        font-family: "STIX Two Text", serif;
+        font-size: 1.25rem;
+        color: #f7efe7;
+      }
+      .grain-badge {
+        padding: 0.375rem 0.75rem;
+        border-radius: 999rem;
+        background: rgba(235, 199, 163, 0.15);
+        color: #e0b98f;
+        font-size: 0.6875rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .hero-title {
+        font-family: "STIX Two Text", serif;
+        letter-spacing: 0.02em;
+      }
+      .hero-lead {
+        color: #ead9c8;
+        max-width: 32.5rem;
+      }
+      .hero-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        border-radius: 0.625rem;
+        padding: 1rem 1.125rem;
+      }
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+      .section {
+        padding: 3.75rem 0;
+      }
+      .muted {
+        color: var(--castano);
+      }
+      .menu-preview {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.125rem;
+      }
+      .menu-item {
+        background: #f2e3d2;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        border: 0.0625rem solid rgba(122, 79, 43, 0.2);
+      }
+      .menu-layout {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.5rem;
+      }
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.125rem;
+      }
+      .menu-visuals {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.125rem;
+        margin: 1.75rem 0 0.5rem;
+      }
+      .menu-panel {
+        background: #231813;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        border-radius: 0.625rem;
+        padding: 1.5rem;
+        color: #f2e8df;
+      }
+      .menu-note {
+        font-size: 0.6875rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #d7b99a;
+        margin-bottom: 0.75rem;
+      }
+      .menu-title {
+        font-family: "STIX Two Text", serif;
+        font-size: 1.375rem;
+        color: #f7efe7;
+        margin: 0 0 0.875rem 0;
+      }
+      .menu-list {
+        display: grid;
+        gap: 0.625rem;
+      }
+      .menu-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.0625rem dashed rgba(235, 199, 163, 0.25);
+      }
+      .menu-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .menu-price {
+        font-weight: 600;
+        color: #e0b98f;
+      }
+      .menu-highlight {
+        background: #2b1f17;
+        color: #f7efe7;
+        border-radius: 0.625rem;
+        padding: 1.375rem;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        box-shadow: 0 1.125rem 2.25rem rgba(26, 18, 13, 0.25);
+      }
+      .section-menu {
+        background: #1b120e;
+        color: #f2e8df;
+      }
+      .section-menu .muted {
+        color: #d7b99a;
+      }
+      .section-playlists {
+        background: #201510;
+        color: #f2e8df;
+      }
+      .section-playlists .muted {
+        color: #d7b99a;
+      }
+      .about-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .about-block h3 {
+        margin: 1.5rem 0 0.5rem 0;
+        color: var(--cafe);
+      }
+      .about-block p {
+        max-width: 45rem;
+      }
+      .section-education {
+        background: #15100c;
+        color: #f2e8df;
+      }
+      .section-education .muted {
+        color: #d7b99a;
+      }
+      .education-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .education-visuals {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.125rem;
+        margin-top: 1.5rem;
+      }
+      .education-figure {
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        background: linear-gradient(135deg, #2a1d16 0%, #4c3524 45%, #7a4f2b 100%);
+        min-height: 9rem;
+        display: grid;
+        place-items: center;
+        color: #f7efe7;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.6875rem;
+      }
+      .education-main {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.125rem;
+      }
+      .education-rail {
+        display: grid;
+        gap: 1.125rem;
+      }
+      .education-card {
+        background: #231813;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .education-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-left: 0.1875rem solid rgba(182, 129, 80, 0.6);
+        pointer-events: none;
+      }
+      .education-card--wide {
+        grid-column: span 2;
+      }
+      .education-title {
+        font-family: "STIX Two Text", serif;
+        font-size: 1.25rem;
+        color: #f7efe7;
+        margin: 0 0 0.5rem 0;
+      }
+      .education-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .education-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 999rem;
+        display: grid;
+        place-items: center;
+        background: rgba(235, 199, 163, 0.15);
+        color: #f2e8df;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+      }
+      .education-list {
+        display: grid;
+        gap: 0.625rem;
+        margin-top: 0.75rem;
+      }
+      .education-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.625rem 0.75rem;
+        border-radius: 0.5rem;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.15);
+        color: #f2e8df;
+        text-decoration: none;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .education-link:hover {
+        border-color: rgba(235, 199, 163, 0.4);
+        transform: translateY(-0.0625rem);
+      }
+      .education-link:active {
+        transform: translateY(0);
+      }
+      .education-link:focus-visible {
+        outline: 0.125rem solid rgba(235, 199, 163, 0.6);
+        outline-offset: 0.125rem;
+      }
+      .education-meta {
+        font-size: 0.75rem;
+        color: #d7b99a;
+      }
+      .playlist-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.125rem;
+      }
+      .playlist-grid-secondary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.125rem;
+        margin-top: 1.125rem;
+      }
+      .playlist-card {
+        background: #2b1f17;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+      }
+      .playlist-tag {
+        font-size: 0.6875rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #d7b99a;
+        margin-bottom: 0.625rem;
+      }
+      .playlist-title {
+        font-family: "STIX Two Text", serif;
+        font-size: 1.25rem;
+        color: #f7efe7;
+        margin: 0 0 0.5rem 0;
+      }
+      .playlist-desc {
+        font-size: 0.875rem;
+        color: #e7d5c2;
+        margin: 0 0 0.875rem 0;
+      }
+      .playlist-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #e0b98f;
+        font-size: 0.8125rem;
+        text-decoration: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+      .playlist-cta:hover {
+        color: #f2d2ae;
+        transform: translateX(0.125rem);
+      }
+      .playlist-cta:active {
+        transform: translateX(0);
+      }
+      .playlist-cta:focus-visible {
+        outline: 0.125rem solid rgba(235, 199, 163, 0.6);
+        outline-offset: 0.125rem;
+      }
+      .playlist-feature {
+        grid-column: span 3;
+        background: linear-gradient(135deg, #2b1f17 0%, #3a2a20 55%, #4c3524 100%);
+        border-radius: 0.875rem;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.125rem;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+      }
+      .origin-list {
+        margin-top: 1.125rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+      .origin-pill {
+        padding: 0.75rem 0.875rem;
+        border-radius: 0.625rem;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f2e8df;
+        font-size: 0.875rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .origin-pill:hover {
+        border-color: rgba(235, 199, 163, 0.5);
+        transform: translateY(-0.0625rem);
+      }
+      .origin-pill:active {
+        transform: translateY(0);
+      }
+      .origin-pill:focus-visible {
+        outline: 0.125rem solid rgba(235, 199, 163, 0.6);
+        outline-offset: 0.125rem;
+      }
+      .is-disabled {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+      .game-shell {
+        background: linear-gradient(145deg, #1a1612 0%, #2d251f 55%, #1a1612 100%);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.15);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        color: #f2e8df;
+      }
+      .game-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .game-title {
+        font-family: "STIX Two Text", serif;
+        font-size: 2rem;
+        margin: 0 0 0.5rem 0;
+        color: #f7efe7;
+      }
+      .game-subtitle {
+        color: #d7b99a;
+        font-size: 0.875rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+      .game-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .game-card:hover {
+        transform: translateY(-0.125rem);
+        border-color: rgba(235, 199, 163, 0.5);
+      }
+      .game-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.625rem;
+        border-radius: 999rem;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.3);
+        color: #d7b99a;
+        font-size: 0.6875rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .game-card h3 {
+        margin: 0.5rem 0 0.25rem 0;
+        font-size: 1.125rem;
+        color: #f7efe7;
+      }
+      .game-card p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #e0cdb9;
+      }
+      .game-panel {
+        display: grid;
+        gap: 1rem;
+      }
+      .game-attr {
+        background: rgba(255, 255, 255, 0.04);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        border-radius: 0.75rem;
+        padding: 1rem;
+      }
+      .game-attr h4 {
+        margin: 0 0 0.375rem 0;
+        font-size: 1rem;
+        color: #f7efe7;
+      }
+      .game-attr p {
+        margin: 0 0 0.75rem 0;
+        font-size: 0.8125rem;
+        color: #d7b99a;
+      }
+      .game-scale {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: #cbb59f;
+        margin-top: 0.375rem;
+      }
+      .game-ticks {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.375rem;
+        padding: 0 0.125rem;
+      }
+      .game-ticks span {
+        width: 0.375rem;
+        height: 0.375rem;
+        border-radius: 999rem;
+        background: rgba(235, 199, 163, 0.5);
+      }
+      .game-legend {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: #d7b99a;
+        margin-top: 0.5rem;
+      }
+      .game-legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+      .legend-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 999rem;
+        background: #b68150;
+        opacity: 0.7;
+      }
+      .game-scoreline {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8125rem;
+        color: #f2e8df;
+        margin-top: 0.5rem;
+      }
+      .game-range {
+        width: 100%;
+      }
+      .game-actions {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+      }
+      .game-button {
+        background: #b68150;
+        color: #1a120e;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .game-button:hover {
+        background: #c59563;
+        transform: translateY(-0.0625rem);
+      }
+      .game-button:active {
+        transform: translateY(0);
+      }
+      .game-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .game-back {
+        background: transparent;
+        color: #d7b99a;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      .game-results {
+        text-align: center;
+      }
+      .sca-panel {
+        margin-top: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.2);
+        border-radius: 0.75rem;
+        padding: 0.75rem;
+      }
+      .sca-panel img {
+        width: 100%;
+        display: block;
+        border-radius: 0.5rem;
+      }
+      .sca-caption {
+        margin-top: 0.5rem;
+        font-size: 0.8125rem;
+        color: #d7b99a;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .sca-link {
+        color: #e0b98f;
+        text-decoration: none;
+      }
+      .game-score {
+        font-size: 3rem;
+        color: #f7efe7;
+        margin: 0;
+      }
+      .game-table {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.5rem;
+      }
+      .game-row {
+        display: grid;
+        grid-template-columns: 1fr 5rem 5rem 4rem;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 0.5rem 0.75rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 0.5rem;
+      }
+      @media (max-width: 56.25em) {
+        .game-grid {
+          grid-template-columns: 1fr;
+        }
+        .game-row {
+          grid-template-columns: 1fr 4rem 4rem 3.5rem;
+        }
+      }
+      .section-dark {
+        background: #1f1611;
+        color: #f2e8df;
+      }
+      .section-dark h2,
+      .section-dark h3 {
+        color: #f7efe7;
+      }
+      .section-dark .muted {
+        color: #d7b99a;
+      }
+      footer {
+        margin-top: auto;
+        background: var(--cafe);
+        color: var(--white);
+      }
+      footer .container {
+        padding: 2rem 1.5rem 2.5rem;
+        text-align: center;
+        font-size: 0.8125rem;
+        opacity: 0.9;
+      }
+      @media (max-width: 56.25em) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .grid-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .menu-preview {
+          grid-template-columns: 1fr;
+        }
+        .menu-layout {
+          grid-template-columns: 1fr;
+        }
+        .menu-grid {
+          grid-template-columns: 1fr;
+        }
+        .menu-visuals {
+          grid-template-columns: 1fr;
+        }
+        .playlist-grid {
+          grid-template-columns: 1fr;
+        }
+        .playlist-feature {
+          grid-column: span 1;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .playlist-grid-secondary {
+          grid-template-columns: 1fr;
+        }
+        .origin-list {
+          grid-template-columns: 1fr;
+        }
+        .education-layout {
+          grid-template-columns: 1fr;
+        }
+        .education-main {
+          grid-template-columns: 1fr;
+        }
+        .education-card--wide {
+          grid-column: span 1;
+        }
+        .education-visuals {
+          grid-template-columns: 1fr;
+        }
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 37.5em) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          flex-wrap: wrap;
+        }
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="logo-wrap">
+          <img
+            class="logo-img"
+            src="marca/TUESTE-1.png"
+            alt="Tueste Specialty Coffee"
+          />
+        </div>
+        <nav class="nav-links" aria-label="Principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#carta">Carta</a>
+          <a href="#valores">Valores</a>
+          <a href="#cafe-sonoro">Café Sonoro</a>
+          <a href="#aula-cafe">Aula de café</a>
+          <a href="#juego">Tueste Lab</a>
+          <a href="#sobre">Sobre Tueste</a>
+          <a href="#visita">Visítanos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="badge">Tueste Specialty Coffee</span>
+            <h1 class="hero-title">Café de especialidad con identidad propia</h1>
+            <p class="lead">
+              Selección de origen, tueste semanal y servicio cuidado. Un espacio
+              donde el café se entiende, se disfruta y se comparte.
+            </p>
+            <a class="cta" href="#carta">Ver carta</a>
+          </div>
+          <div class="hero-visual">
+            <h3>Tueste Specialty Coffee</h3>
+            <p class="hero-lead">
+              Un espacio cuidado, artesanal y tranquilo. Cada café tiene una
+              historia y cada taza busca su mejor versión.
+            </p>
+            <div class="hero-card">
+              <strong>Tueste fresco</strong>
+              <p style="margin: 0.375rem 0 0 0;">
+                Tostado semanal en Córdoba para máxima frescura.
+              </p>
+            </div>
+            <div class="photo-frame hero-photo">
+              <img
+                src="marca/imagen%20taza%20granos.png"
+                alt="Taza de café con granos"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="carta" class="section section-menu">
+        <div class="container">
+          <h2>Nuestra carta</h2>
+          <p class="muted">
+            Café de especialidad, bebidas y repostería pensadas para disfrutar.
+          </p>
+          <div class="menu-visuals">
+            <div class="photo-frame">
+              <img
+                src="assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.png"
+                alt="Café cenital"
+              />
+            </div>
+            <div class="photo-frame">
+              <img
+                src="marca/imagen%20cookie.png"
+                alt="Dulces artesanos"
+              />
+            </div>
+          </div>
+          <div class="menu-grid" style="margin-top: 1.5rem">
+            <div class="menu-panel">
+              <h3 class="menu-title">Cafés espresso</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Ristretto 4oz</span><span class="menu-price">2.20€</span></div>
+                <div class="menu-row"><span>Espresso 4oz</span><span class="menu-price">2.20€</span></div>
+                <div class="menu-row"><span>Espresso doble 4oz</span><span class="menu-price">2.70€</span></div>
+                <div class="menu-row"><span>Lungo 4oz</span><span class="menu-price">2.20€</span></div>
+                <div class="menu-row"><span>Cortado 4oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Macchiato 4oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Americano 8oz</span><span class="menu-price">3.00€</span></div>
+                <div class="menu-row"><span>Americano XL 12oz</span><span class="menu-price">3.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Cafés con leche</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Cappuccino 6oz</span><span class="menu-price">3.40€</span></div>
+                <div class="menu-row"><span>Latte 8oz</span><span class="menu-price">3.00€</span></div>
+                <div class="menu-row"><span>Latte XL 12oz</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Flat White 6oz</span><span class="menu-price">3.80€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Cafés fríos</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Cold Brew 12oz</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Cold Brew XL 16oz</span><span class="menu-price">5.00€</span></div>
+                <div class="menu-row"><span>Iced Latte 12oz</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Iced Latte XL 16oz</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Iced Americano 12oz</span><span class="menu-price">3.00€</span></div>
+                <div class="menu-row"><span>Iced Americano XL 16oz</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Espresso Tonic 12oz</span><span class="menu-price">4.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Matcha & Chai</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Matcha Latte 8oz</span><span class="menu-price">4.40€</span></div>
+                <div class="menu-row"><span>Matcha Latte XL 12oz</span><span class="menu-price">5.00€</span></div>
+                <div class="menu-row"><span>Iced Matcha Latte 12oz</span><span class="menu-price">4.30€</span></div>
+                <div class="menu-row"><span>Iced Matcha Latte XL 16oz</span><span class="menu-price">5.00€</span></div>
+                <div class="menu-row"><span>Chai Latte 8oz</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Chai Latte XL 12oz</span><span class="menu-price">4.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Suplementos</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Extra Shot</span><span class="menu-price">+1.00€</span></div>
+                <div class="menu-row"><span>Leche vegetal (Avena/Soja/Almendra)</span><span class="menu-price">Gratis</span></div>
+                <div class="menu-row"><span>Leche sin lactosa</span><span class="menu-price">Gratis</span></div>
+                <div class="menu-row"><span>Sirope (Vainilla/Caramelo/Chocolate)</span><span class="menu-price">Gratis</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Tés con teína</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>English Breakfast 8oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Sencha BIO 8oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Menta Marroquí 8oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Pai Mu Tan BIO 8oz</span><span class="menu-price">2.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Infusiones sin teína</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Manzanilla 8oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Rooibos Canela Vainilla 8oz</span><span class="menu-price">2.50€</span></div>
+                <div class="menu-row"><span>Jengibre Limón 8oz</span><span class="menu-price">2.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Agua</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Agua Mondariz sin gas 0,5L</span><span class="menu-price">2.00€</span></div>
+                <div class="menu-row"><span>Mad Sparkling Water + Electrolitos 33cl</span><span class="menu-price">3.00€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Tónicas artesanales</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div>
+                <div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div>
+                <div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Refrescos artesanales</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>La Fantástica Sr. Nuez Cola Sin Azúcar 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>La Fantástica Avelina Navellate Naranja 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>La Fantástica Cítrico Montoya Limón 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Bebidas funcionales</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Brite Piña Mango 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Brite Frambuesa y Menta 33cl</span><span class="menu-price">3.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Zumos bio premium</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Linda Zumo Bio Limonada Jengibre y Agave 20cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Linda Zumo Bio Limonada Hibiscus y Agave 20cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Linda Zumo Bio Mandarina con Romero 20cl</span><span class="menu-price">3.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Tés helados</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Lindo Té Negro Limón 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Lindo Té Verde Lima & Jengibre 33cl</span><span class="menu-price">3.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Kombuchas</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Kom-Buchito Limón 33cl</span><span class="menu-price">4.00€</span></div>
+                <div class="menu-row"><span>Kom-Buchito Naranja 33cl</span><span class="menu-price">4.00€</span></div>
+                <div class="menu-row"><span>Kom-Buchito Frutos Rojos 33cl</span><span class="menu-price">4.00€</span></div>
+                <div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Cervezas artesanas</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Guadalquibeer Córdoba 4,5% Red Ale Sin Gluten 33cl</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Guadalquibeer Jaén 5,2% Sweet Stout Sin Gluten 33cl</span><span class="menu-price">3.80€</span></div>
+                <div class="menu-row"><span>La Palomareña Rubia 4,2% Hoppy Helles 33cl</span><span class="menu-price">4.00€</span></div>
+                <div class="menu-row"><span>Lervig No Worries 0,5% IPA Sin Gluten 33cl</span><span class="menu-price">4.20€</span></div>
+                <div class="menu-row"><span>Espiga Ginger Beer 0,0% Sin Alcohol Sin Gluten 33cl</span><span class="menu-price">3.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Sidras</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Galipette Sidra de Manzana 0% Sin Alcohol 33cl</span><span class="menu-price">3.70€</span></div>
+                <div class="menu-row"><span>Kopparberg Fruta Mixta 4,5% 50cl</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Kopparberg Frutos Rojos 4,5% 50cl</span><span class="menu-price">4.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <h3 class="menu-title">Dulces</h3>
+              <div class="menu-list">
+                <div class="menu-row"><span>Bizcocho limón y arándanos</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Brownie chocolate</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Cookie café y avellana</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Cookie clásica</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Cookie espresso</span><span class="menu-price">3.50€</span></div>
+                <div class="menu-row"><span>Magdalena aceite</span><span class="menu-price">4.00€</span></div>
+                <div class="menu-row"><span>Mini cookie espresso</span><span class="menu-price">1.50€</span></div>
+                <div class="menu-row"><span>Whoopie de café y dulce leche</span><span class="menu-price">4.50€</span></div>
+              </div>
+            </div>
+            <div class="menu-panel">
+              <div class="menu-note">Coming soon</div>
+              <h3 class="menu-title">Dulces sin gluten</h3>
+              <p>Próximamente.</p>
+            </div>
+          </div>
+          <div class="grain-banner">
+            <strong>Selección curada, origen transparente.</strong>
+            <span class="grain-badge">Tueste semanal</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="valores" class="section section-dark">
+        <div class="container">
+          <h2>Nuestra manera de hacer</h2>
+          <p class="muted">
+            Café bien hecho, cercano y sin artificios.
+          </p>
+          <p style="max-width: 45rem; margin-top: 0.75rem; color: #d7b99a;">
+            Trabajamos con <a class="playlist-cta" href="https://cafesinintermediarios.es/" target="_blank" rel="noopener noreferrer">Café Sin Intermediarios</a>, un
+            aliado que respeta el origen y la calidad. Tostamos en Córdoba, la
+            repostería se hace aquí y nuestras bebidas siguen la idea de apoyar
+            a pequeñas empresas locales. Queremos que cada taza tenga un
+            recorrido claro y un lugar propio.
+          </p>
+          <div class="grid-4" style="margin-top: 1.5rem">
+            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+              <h3>Origen con criterio</h3>
+              <p>Selección consciente, trazabilidad y perfil definido.</p>
+            </div>
+            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+              <h3>Café Sin Intermediarios</h3>
+              <p>Aliado clave para asegurar consistencia y calidad.</p>
+            </div>
+            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+              <h3>Tueste fresco</h3>
+              <p>Tostado semanal en Córdoba para máxima frescura.</p>
+            </div>
+            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+              <h3>Repostería de autor</h3>
+              <p>Hecha aquí, pensada para el café.</p>
+            </div>
+          </div>
+          <p style="max-width: 45rem; margin-top: 1.5rem; color: #d7b99a;">
+            Queremos acercar el buen café y su cultura a cualquiera. Servicio
+            de calidad, formación y ganas reales de compartir lo que amamos.
+          </p>
+        </div>
+      </section>
+
+      <section id="cafe-sonoro" class="section section-playlists">
+        <div class="container">
+          <h2>Café Sonoro</h2>
+          <p class="muted">
+            La música forma parte de la experiencia: acompaña el café, marca el
+            ritmo del día y da carácter al espacio.
+          </p>
+          <p style="max-width: 45rem; margin-top: 0.75rem;">
+            Café Sonoro nace del mismo gesto que guía el tueste: escuchar,
+            seleccionar y cuidar. Cada origen tiene un pulso y cada taza pide su
+            atmósfera. Por eso reunimos listas que miran al mundo del café y una
+            selección abierta para quienes lo comparten con nosotros.
+          </p>
+          <div class="playlist-grid" style="margin-top: 1.5rem">
+            <div class="playlist-feature">
+              <div>
+                <div class="playlist-tag">Lista colaborativa</div>
+                <div class="playlist-title">Tueste en bucle</div>
+                <p class="playlist-desc">
+                  Esta lista crece con cada visita. Suma tu tema y ayúdanos a
+                  definir el ritmo de Tueste.
+                </p>
+              </div>
+              <a
+                class="playlist-cta"
+                href="https://open.spotify.com/playlist/23ZNZ6K37urp2BZl7sMolD?si=2adb7d6c36774fc9&pt=11b6ec0a08bda87078bea6f6776bdc1c"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Añadir canción →</a>
+            </div>
+          </div>
+          <div class="menu-note" style="margin-top: 1.375rem">Orígenes del café</div>
+          <p class="muted" style="margin-top: 0.375rem;">
+            Una playlist por origen. Pulsa para abrirla en Spotify.
+          </p>
+          <div class="origin-list">
+            <a class="origin-pill" href="https://open.spotify.com/playlist/7zgcE5RFla8CeU332dQn8u" target="_blank" rel="noopener noreferrer">Brasil</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/37i9dQZEVXbLdGSmz6xilI" target="_blank" rel="noopener noreferrer">Vietnam</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/6J4CXCI2ttY2JO7vZRujMZ" target="_blank" rel="noopener noreferrer">Colombia</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/0Hy9rITSl0a8n2bNBbFcta" target="_blank" rel="noopener noreferrer">Indonesia</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/1a8QWAogYxy8ULfcuI181A" target="_blank" rel="noopener noreferrer">Etiopía</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/1e7kvZfdOagkErRXirU39E" target="_blank" rel="noopener noreferrer">Uganda</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/37i9dQZF1DX3LrQBSMX6aK" target="_blank" rel="noopener noreferrer">India</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/15CtLW008TNRbw0oZEj0Uk" target="_blank" rel="noopener noreferrer">Honduras</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/4F19GCNWMODsqMGCQMb7U9" target="_blank" rel="noopener noreferrer">Perú</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/0GlHS79uCM5Jinmo6IFhHN" target="_blank" rel="noopener noreferrer">México</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/3vtmU2Z4hEJTWQbYEuwG6s" target="_blank" rel="noopener noreferrer">Guatemala</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/3Yzhq2ndfT1m3mg5D0sqXV" target="_blank" rel="noopener noreferrer">Nicaragua</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/6l6X13EYuQyuFBU6c6JRJM" target="_blank" rel="noopener noreferrer">China</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/6JHTVu3u7kOXLolwL1Rg1f" target="_blank" rel="noopener noreferrer">Costa Rica</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/54ZA9LXFvvFujmOVWXpHga" target="_blank" rel="noopener noreferrer">Costa de Marfil</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/2tDBNFOnSAY4LjX0s1OALz" target="_blank" rel="noopener noreferrer">Kenia</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/1P9XoRjC7t3W9iZs5nAIx4" target="_blank" rel="noopener noreferrer">República Democrática del Congo</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/4CaDH8L1J3Pi3QECNbkI55" target="_blank" rel="noopener noreferrer">Tanzania</a>
+            <a class="origin-pill" href="https://open.spotify.com/playlist/1EbVc8fl9r51zeZNYiHFvB" target="_blank" rel="noopener noreferrer">Venezuela</a>
+          </div>
+          <div class="playlist-grid-secondary">
+            <div class="playlist-card">
+              <div class="playlist-tag">Café en canciones</div>
+              <div class="playlist-title">Menciones al café</div>
+              <p class="playlist-desc">Temas que hablan del café y su cultura.</p>
+              <a
+                class="playlist-cta"
+                href="https://open.spotify.com/playlist/4duPb6itCcEXAXnZlViXES"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Escuchar →</a>
+            </div>
+            <div class="playlist-card">
+              <div class="playlist-tag">Destino</div>
+              <div class="playlist-title">Córdoba · Andalucía</div>
+              <p class="playlist-desc">
+                El sonido del lugar donde se bebe el café: sur, luz y calma.
+              </p>
+              <a class="playlist-cta" href="#cafe-sonoro">Escuchar →</a>
+            </div>
+          </div>
+          <p class="muted" style="margin-top: 1.375rem; max-width: 45rem;">
+            Hay cafés que llegan con una historia y otros que se quedan con
+            otra: la de Córdoba, la barra, la conversación y el tiempo lento.
+          </p>
+        </div>
+      </section>
+
+      <section id="aula-cafe" class="section section-education">
+        <div class="container">
+          <h2>Aula de café</h2>
+          <p class="muted">
+            Un espacio para aprender con criterio: libros, vídeos y recursos
+            abiertos para profundizar en el café de especialidad.
+          </p>
+          <p style="max-width: 45rem; margin-top: 0.75rem;">
+            Referencias útiles, ordenadas y prácticas para aprender sin ruido.
+          </p>
+          <div class="education-visuals">
+            <div class="photo-frame">
+              <img
+                src="marca/cuaderno%20cafe.png"
+                alt="Cuaderno de café con notas"
+              />
+            </div>
+            <div class="photo-frame">
+              <img
+                src="marca/herramientas%20cafe.png"
+                alt="Herramientas de barista"
+              />
+            </div>
+          </div>
+          <div class="education-layout">
+            <div class="education-main">
+              <div class="education-card education-card--wide">
+                <div class="education-header">
+                  <div class="education-icon">LB</div>
+                  <h3 class="education-title">Libros esenciales</h3>
+                </div>
+                <p class="muted">
+                  Lecturas base para origen, tueste y preparación.
+                </p>
+                <div class="education-list">
+                  <a
+                    class="education-link"
+                    href="https://www.amazon.es/s?k=World+Atlas+of+Coffee+James+Hoffmann"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>World Atlas of Coffee · James Hoffmann</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.amazon.es/s?k=How+to+Make+the+Best+Coffee+at+Home"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>How to Make the Best Coffee at Home</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.amazon.es/s?k=The+Coffee+Roaster%27s+Companion+Scott+Rao"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>The Coffee Roaster’s Companion</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.amazon.es/s?k=The+Blue+Bottle+Craft+of+Coffee"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>The Blue Bottle Craft of Coffee</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.amazon.es/s?k=Craft+Coffee+Jessica+Easto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Craft Coffee · Jessica Easto</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.amazon.es/s?k=The+Coffee+Dictionary+Maxwell+Colonna-Dashwood"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>The Coffee Dictionary</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                </div>
+              </div>
+              <div class="education-card">
+                <div class="education-header">
+                  <div class="education-icon">VD</div>
+                  <h3 class="education-title">Vídeos y canales</h3>
+                </div>
+                <p class="muted">
+                  Formación clara y práctica.
+                </p>
+                <div class="education-list">
+                  <a
+                    class="education-link"
+                    href="https://www.youtube.com/@jameshoffmann"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>James Hoffmann · YouTube</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.youtube.com/@EuropeanCoffeeTrip"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>European Coffee Trip</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.youtube.com/@TheRealChrisBaca"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>The Real Chris Baca</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.youtube.com/@seattlecoffeegear"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Seattle Coffee Gear</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.baristahustle.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Barista Hustle · Recursos</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                </div>
+              </div>
+              <div class="education-card">
+                <div class="education-header">
+                  <div class="education-icon">RC</div>
+                  <h3 class="education-title">Recursos abiertos</h3>
+                </div>
+                <p class="muted">
+                  Guías y herramientas para afinar criterio.
+                </p>
+                <div class="education-list">
+                  <a
+                    class="education-link"
+                    href="https://sca.coffee/research/coffee-flavor-wheel"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>SCA Flavor Wheel</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.coffeeadastra.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Coffee Ad Astra</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.bluebottlecoffee.com/brew-guides"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Blue Bottle · Brew Guides</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://sca.coffee/research"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>SCA Resources</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="education-rail">
+              <div class="education-card">
+                <div class="education-header">
+                  <div class="education-icon">BL</div>
+                  <h3 class="education-title">Blogs y lectura</h3>
+                </div>
+                <p class="muted">
+                  Artículos actuales y buena lectura.
+                </p>
+                <div class="education-list">
+                  <a
+                    class="education-link"
+                    href="https://perfectdailygrind.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Perfect Daily Grind</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.baristamagazine.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Barista Magazine</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://sprudge.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Sprudge</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://dailycoffeenews.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Daily Coffee News</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                </div>
+              </div>
+              <div class="education-card">
+                <div class="education-header">
+                  <div class="education-icon">CR</div>
+                  <h3 class="education-title">Cursos y formación</h3>
+                </div>
+                <p class="muted">
+                  Itinerarios recomendados para el oficio.
+                </p>
+                <div class="education-list">
+                  <a
+                    class="education-link"
+                    href="https://www.escueladebarismo.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Escuela de Barismo · Málaga</span>
+                    <span class="education-meta">Formación recomendada</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://education.sca.coffee/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>SCA Education</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.baristahustle.com/online-barista-course/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Barista Hustle Courses</span>
+                    <span class="education-meta">Referencia</span>
+                  </a>
+                  <a
+                    class="education-link"
+                    href="https://www.escueladebarismo.com/formaciones/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Programas SCA · Escuela de Barismo</span>
+                    <span class="education-meta">Formación recomendada</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="juego" class="section">
+        <div class="container">
+          <h2>Tueste Lab</h2>
+          <p class="muted">
+            Una experiencia interactiva con protocolo SCA para poner a prueba tu
+            paladar.
+          </p>
+          <p style="max-width: 45rem; margin-top: 0.75rem;">
+            Catamos con los mismos criterios que usan los profesionales. Aquí
+            no se trata de acertar “a ojo”, sino de entrenar la percepción y
+            comparar tu cata con la ficha oficial.
+          </p>
+          <p style="max-width: 45rem; margin-top: 0.75rem;">
+            Elige un café, evalúa sus atributos y descubre tu precisión. Si te
+            apetece, repite con otro origen y ve afinando tu paladar.
+          </p>
+          <p class="muted" style="max-width: 45rem; margin-top: 0.75rem;">
+            Escala SCA: puntuaciones de 6,00 a 10,00 con pasos de 0,25. Cada
+            atributo se valora de forma independiente y se compara con la ficha
+            oficial del café.
+          </p>
+          <div class="game-legend" aria-hidden="true">
+            <span><i class="legend-dot"></i>6,00 · Correcto</span>
+            <span><i class="legend-dot"></i>8,00 · Muy bueno</span>
+            <span><i class="legend-dot"></i>10,00 · Excelente</span>
+          </div>
+          <div class="game-shell" style="margin-top: 1.5rem">
+            <div id="game-root" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="section">
+        <div class="container">
+          <h2>Sobre Tueste</h2>
+          <p class="muted">
+            Una amistad de toda la vida convertida en proyecto compartido.
+          </p>
+          <div class="about-layout">
+            <div class="about-block">
+              <h3>Una historia compartida</h3>
+              <p>
+                Tueste nace de una amistad de toda la vida y del deseo de crear
+                un espacio con identidad propia. Dos trayectorias distintas,
+                una misma visión: café de especialidad bien contado, atención
+                cercana y un lugar que se recuerda por cómo te hace sentir.
+              </p>
+              <h3>Nace Tueste</h3>
+              <p>
+                El café resultó ser una pasión compartida, aunque como
+                aficionados, nunca como profesionales. Y Córdoba, la ciudad que
+                los vio crecer, se convirtió en el lugar perfecto para regresar.
+                Después de dar vueltas por el mundo, ambos se reencontraron con
+                ella. Se enamoraron de nuevo.
+              </p>
+              <p>
+                Calle Deanes, en el corazón de la Judería. Un sitio perfecto
+                para iniciar un proyecto conjunto. Un espacio donde aportar
+                calidad y sostenibilidad en un entorno inmejorable.
+              </p>
+              <p>
+                Tueste nace con una visión clara pero flexible. Es pronto para
+                definir exactamente hacia dónde evolucionará el negocio, pero
+                Pepe y Ricardo saben una cosa: les gusta rodearse de gente buena,
+                con ganas y con la visión de hacer de Córdoba y Andalucía un
+                sello de calidad.
+              </p>
+              <h3>Lo que queremos para ti</h3>
+              <p>
+                Si vienes de fuera, en medio de jornadas de turismo que suelen
+                hacerse largas, queremos darte unos minutos de disfrute. Un
+                oasis de tranquilidad donde sentirte en casa.
+              </p>
+              <p>
+                Si eres cordobés, queremos abrirte una ventana al casco. Que te
+                atrevas a bajar y disfrutar de un espacio que normalmente se nos
+                priva por nuestra condición de locales. Si millones de personas
+                nos visitan, ¿cómo es que los cordobeses no lo frecuentamos? Te
+                ofrecemos un espacio conocido para reencontrarte con tu
+                patrimonio.
+              </p>
+              <p>
+                Para todos: un lugar donde consumir calidad y sostenibilidad.
+                Donde seas bienvenido y hagas tuyo este rincón.
+              </p>
+              <p>
+                Porque al final, esto es lo que siempre ha sido: una mesa
+                compartida. Solo que ahora, la silla también es para ti.
+              </p>
+              <p><strong>Te esperamos en Calle Deanes.</strong></p>
+            </div>
+            <div class="about-photo">
+              <div class="photo-frame">
+                <img
+                  src="assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2025-12-31_at_21.49.41-40c19b17-89f8-4896-a975-903df3e1f63b.png"
+                  alt="Pepe y Ricardo en Conil de la Frontera, mayo de 2025"
+                />
+              </div>
+              <p class="muted" style="margin-top: 0.75rem;">
+                Ricardo (izquierda) y Pepe (derecha). Conil de la Frontera, mayo
+                de 2025. El día que empezó Tueste.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="visita" class="section">
+        <div class="container">
+          <h2>Visítanos</h2>
+          <div class="card">
+            <p><strong>Dirección:</strong> Calle Deanes 12, Córdoba</p>
+            <p><strong>Horario:</strong> 9:30–17:30</p>
+            <p><strong>Contacto:</strong> tueste@tueste.coffee</p>
+            <p><strong>Redes:</strong> Instagram · WhatsApp · Google (coming soon)</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © 2026 Tueste Specialty Coffee · Córdoba, España
+      </div>
+    </footer>
+    <script>
+      const coffeeProfiles = [
+        {
+          id: 1,
+          name: "Honduras San Jose El Volcán",
+          origin: "Honduras",
+          process: "Lavado",
+          notes: "Chocolate, dulce, plátano maduro",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.23-4c5829af-59c9-474f-b8b8-40f7b8b268bb.png",
+          scaAlt: "Ficha SCA Honduras San Jose El Volcán",
+          scaScores: { aroma: 8, sabor: 8, acidez: 7, finalizacion: 8, cuerpo: 8, balance: 8, global: 9, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 2,
+          name: "Etiopía Sidamo",
+          origin: "Etiopía",
+          process: "Lavado",
+          notes: "Jazmín, albaricoque, caramelo, lima y mazapán",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.19-98a8ee51-a8d5-4d6d-8e29-3d87ec451d9d.png",
+          scaAlt: "Ficha SCA Etiopía Sidamo",
+          scaScores: { aroma: 8, sabor: 8, acidez: 8, finalizacion: 7.75, cuerpo: 7.75, balance: 8, global: 8, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 3,
+          name: "Honduras Cecilia Finca Arroyo",
+          origin: "Honduras",
+          process: "Lavado",
+          notes: "Chocolate con leche, caramelo y frutas cítricas",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.20-e82d95ec-ed0e-41d1-a8d4-4f92d38644de.png",
+          scaAlt: "Ficha SCA Honduras Cecilia Finca Arroyo",
+          scaScores: { aroma: 8, sabor: 8, acidez: 8, finalizacion: 9, cuerpo: 8, balance: 7.5, global: 7.5, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 4,
+          name: "Honduras Icatú",
+          origin: "Honduras",
+          process: "Lavado",
+          notes: "Lulo (naranjilla), durazno, miel",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.22-75d83e6c-fe69-4235-a9cd-20f4e2f0d6de.png",
+          scaAlt: "Ficha SCA Honduras Icatú",
+          scaScores: { aroma: 8, sabor: 8, acidez: 8, finalizacion: 9, cuerpo: 9, balance: 7.5, global: 7.5, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 5,
+          name: "Etiopía Kolla Bolcha",
+          origin: "Etiopía",
+          process: "Lavado",
+          notes: "Azúcar morena, albaricoque, fresa, ciruela",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.17-ddd77dbc-11b9-4718-a5e8-a161a30a4ee4.png",
+          scaAlt: "Ficha SCA Etiopía Kolla Bolcha",
+          scaScores: { aroma: 8, sabor: 8, acidez: 8, finalizacion: 8, cuerpo: 9, balance: 8, global: 8, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 6,
+          name: "México Descafeinado",
+          origin: "México",
+          process: "Descafeinado (Water process)",
+          notes: "Chocolate, tabaco",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.30-309713b0-73c3-481b-b0b5-3fbf8ebb5b44.png",
+          scaAlt: "Ficha SCA México Descafeinado",
+          scaScores: { aroma: 8, sabor: 8, acidez: 7.5, finalizacion: 7.5, cuerpo: 8, balance: 7.5, global: 7.5, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 7,
+          name: "Colombia Orgánico",
+          origin: "Colombia",
+          process: "Lavado · Secado al sol",
+          notes: "Caramelo, limón, cereza, achocolatado",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.16-91565f26-2a5f-4966-9671-a738673fc055.png",
+          scaAlt: "Ficha SCA Colombia Orgánico",
+          scaScores: { aroma: 7.5, sabor: 7.5, acidez: 7.75, finalizacion: 7.5, cuerpo: 7.5, balance: 7.5, global: 7.75, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 8,
+          name: "Colombia Huila Premium",
+          origin: "Colombia",
+          process: "Lavado",
+          notes: "Chocolate, almendra tostada, manzana roja y limón",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.15-66f38ff6-51f6-47fd-ba80-f96781ac6b5b.png",
+          scaAlt: "Ficha SCA Colombia Huila Premium",
+          scaScores: { aroma: 7.75, sabor: 7.75, acidez: 7.5, finalizacion: 7.75, cuerpo: 7.75, balance: 7.75, global: 7.75, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 9,
+          name: "Brasil Serrano",
+          origin: "Brasil",
+          process: "Natural",
+          notes: "Chocolate con leche, cacao y frutos secos",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.13-eb4f29f0-b488-4d9a-bc71-6eadac96d386.png",
+          scaAlt: "Ficha SCA Brasil Serrano",
+          scaScores: { aroma: 7.5, sabor: 7.25, acidez: 7, finalizacion: 7, cuerpo: 7.5, balance: 7.25, global: 7.25, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 10,
+          name: "Nicaragua",
+          origin: "Nicaragua",
+          process: "Lavado",
+          notes: "Jazmín y frutas de hueso",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.28-3baa1003-84d0-4b49-befd-5cb18a6fabce.png",
+          scaAlt: "Ficha SCA Nicaragua",
+          scaScores: { aroma: 8.25, sabor: 9, acidez: 8, finalizacion: 9, cuerpo: 9, balance: 8, global: 8, uniformidad: 9, dulzor: 9, limpieza: 9 },
+        },
+        {
+          id: 11,
+          name: "Honduras Victor Contreras",
+          origin: "Honduras",
+          process: "Anaeróbico gesha",
+          notes: "Jazmín, melocotón y hierba de limón",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.26-24da916d-cf6c-4974-902e-cbb6e02c8660.png",
+          scaAlt: "Ficha SCA Honduras Victor Contreras",
+          scaScores: { aroma: 8, sabor: 8, acidez: 8, finalizacion: 9, cuerpo: 9, balance: 7.5, global: 7.5, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+        {
+          id: 12,
+          name: "Honduras San Jose Gesha",
+          origin: "Honduras",
+          process: "Lavado",
+          notes: "Jazmín, flores de azahar",
+          scaImage: "assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2026-01-21_at_19.05.25-9743e90a-e562-4748-98c2-da781836807a.png",
+          scaAlt: "Ficha SCA Honduras San Jose Gesha",
+          scaScores: { aroma: 8, sabor: 8, acidez: 8, finalizacion: 8, cuerpo: 8, balance: 9, global: 9, uniformidad: 10, dulzor: 10, limpieza: 10 },
+        },
+      ];
+      const attributes = [
+        {
+          key: "aroma",
+          label: "Aroma",
+          desc: "Evalúa primero la fragancia en seco (molienda) y luego el aroma con agua caliente. Busca intensidad, claridad y complejidad. ¿Hay notas definidas o es plano?",
+        },
+        {
+          key: "sabor",
+          label: "Sabor",
+          desc: "Considera el conjunto en boca: sabores principales, riqueza y definición. No es solo lo que percibes al inicio, sino la calidad global del perfil.",
+        },
+        {
+          key: "acidez",
+          label: "Acidez",
+          desc: "Brillo y vivacidad del café. Piensa en acidez positiva (cítrica, málica, tartárica) frente a acidez áspera o punzante.",
+        },
+        {
+          key: "finalizacion",
+          label: "Finalización",
+          desc: "La persistencia del sabor tras tragar. Valora duración, limpieza y si las notas finales son agradables o secas.",
+        },
+        {
+          key: "cuerpo",
+          label: "Cuerpo",
+          desc: "Sensación física: peso, textura y viscosidad. ¿Es ligero, cremoso o denso? Busca coherencia con el origen.",
+        },
+        {
+          key: "balance",
+          label: "Balance",
+          desc: "Cómo encajan acidez, dulzor, amargor y cuerpo. Un café balanceado no tiene un atributo que domine sin sentido.",
+        },
+        {
+          key: "global",
+          label: "Global",
+          desc: "Tu impresión final. Aquí decides si el café te parece sobresaliente por calidad, tipicidad y limpieza.",
+        },
+        {
+          key: "uniformidad",
+          label: "Uniformidad",
+          desc: "Consistencia entre tazas. Si todo sabe igual, la puntuación es alta; si hay variaciones, baja.",
+        },
+        {
+          key: "dulzor",
+          label: "Dulzor",
+          desc: "Dulzor natural del café, no azúcar. Un buen dulzor suaviza la acidez y aporta redondez.",
+        },
+        {
+          key: "limpieza",
+          label: "Limpieza",
+          desc: "Ausencia de defectos o sabores extraños. Un café limpio deja la boca clara y sin notas indeseadas.",
+        },
+      ];
+      const gameRoot = document.getElementById("game-root");
+      let selectedCoffee = null;
+      let scores = {};
+
+      function renderSelection() {
+        gameRoot.innerHTML = `
+          <div class="game-header">
+            <div class="game-subtitle">Protocolo SCA</div>
+            <h3 class="game-title">Elige un café</h3>
+          </div>
+          <div class="game-grid">
+            ${coffeeProfiles
+              .map(
+                (c) => `
+                <button class="game-card" data-id="${c.id}">
+                  <span class="game-badge">${c.origin}</span>
+                  <h3>${c.name}</h3>
+                  <p>${c.notes}</p>
+                </button>
+              `
+              )
+              .join("")}
+          </div>
+        `;
+        gameRoot.querySelectorAll(".game-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            const id = Number(card.getAttribute("data-id"));
+            selectedCoffee = coffeeProfiles.find((c) => c.id === id);
+            scores = {};
+            renderScoring();
+          });
+        });
+      }
+
+      function renderScoring() {
+        gameRoot.innerHTML = `
+          <div class="game-header">
+            <div class="game-subtitle">Cata guiada</div>
+            <h3 class="game-title">${selectedCoffee.name}</h3>
+          </div>
+          <p class="muted" style="text-align: center; margin: 0 0 1rem 0;">
+            La ficha SCA se revela al final, junto con tus resultados.
+          </p>
+          <div class="game-panel">
+            ${attributes
+              .map(
+                (attr) => `
+                <div class="game-attr">
+                  <h4>${attr.label}</h4>
+                  <p>${attr.desc}</p>
+                  <input class="game-range" type="range" min="6" max="10" step="0.25" value="6" data-key="${attr.key}" />
+                  <div class="game-ticks" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="game-scale">
+                    <span>6,00</span>
+                    <span>7,00</span>
+                    <span>8,00</span>
+                    <span>9,00</span>
+                    <span>10,00</span>
+                  </div>
+                  <div class="game-scoreline" data-score="${attr.key}">
+                    <span>Tu puntuación</span>
+                    <strong>6,00</strong>
+                  </div>
+                </div>
+              `
+              )
+              .join("")}
+          </div>
+          <div class="game-actions">
+            <button class="game-back" type="button">← Volver</button>
+            <button class="game-button" type="button" disabled>Ver resultados</button>
+          </div>
+        `;
+        const back = gameRoot.querySelector(".game-back");
+        const button = gameRoot.querySelector(".game-button");
+        back.addEventListener("click", renderSelection);
+        const ranges = gameRoot.querySelectorAll(".game-range");
+        ranges.forEach((range) => {
+          range.addEventListener("input", () => {
+            const key = range.getAttribute("data-key");
+            scores[key] = Number(range.value);
+            const scoreLine = gameRoot.querySelector(`[data-score="${key}"] strong`);
+            if (scoreLine) {
+              scoreLine.textContent = Number(range.value).toFixed(2).replace(".", ",");
+            }
+            button.disabled = Object.keys(scores).length < attributes.length;
+          });
+        });
+        button.addEventListener("click", renderResults);
+      }
+
+      function renderResults() {
+        const sca = selectedCoffee.scaScores;
+        let totalDiff = 0;
+        attributes.forEach((attr) => {
+          totalDiff += Math.abs((scores[attr.key] || 0) - sca[attr.key]);
+        });
+        const precision = Math.round(Math.max(0, 100 - (totalDiff / attributes.length) * 25));
+        gameRoot.innerHTML = `
+          <div class="game-results">
+            <div class="game-subtitle">Resultados</div>
+            <p class="game-score">${precision}%</p>
+            <p>Precisión de cata</p>
+          </div>
+          <div class="game-table">
+            ${attributes
+              .map(
+                (attr) => `
+                <div class="game-row">
+                  <span>${attr.label}</span>
+                  <span>${(scores[attr.key] || 0).toFixed(2)}</span>
+                  <span>${sca[attr.key].toFixed(2)}</span>
+                  <span>±${Math.abs((scores[attr.key] || 0) - sca[attr.key]).toFixed(2)}</span>
+                </div>
+              `
+              )
+              .join("")}
+          </div>
+          ${
+            selectedCoffee.scaImage
+              ? `
+            <div class="sca-panel">
+              <img src="${selectedCoffee.scaImage}" alt="${selectedCoffee.scaAlt}" />
+              <div class="sca-caption">
+                <span>Ficha SCA completa</span>
+                <a class="sca-link" href="${selectedCoffee.scaImage}" target="_blank" rel="noopener noreferrer">Abrir imagen</a>
+              </div>
+            </div>`
+              : ""
+          }
+          <div class="game-actions">
+            <button class="game-button" type="button">Catar otro café</button>
+          </div>
+        `;
+        gameRoot.querySelector(".game-button").addEventListener("click", renderSelection);
+      }
+
+      renderSelection();
+    </script>
+  </body>
+</html>
