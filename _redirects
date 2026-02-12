@@ -1,0 +1,3 @@
+/index-en.html /en/ 301
+/en /index-en.html 200
+/en/* /index-en.html 200
