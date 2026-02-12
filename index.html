@@ -955,6 +955,16 @@
         }
         .nav-links {
           flex-wrap: wrap;
+          gap: 0.5rem;
+          font-size: 0.75rem;
+        }
+        .nav-links a {
+          padding: 0.375rem 0.5rem;
+        }
+        .lang-switch {
+          margin-left: 0;
+          width: 100%;
+          justify-content: flex-start;
         }
         .grid-4 {
           grid-template-columns: 1fr;
@@ -972,13 +982,13 @@
   <body>
     <header>
       <div class="container nav">
-        <div class="logo-wrap">
+        <a class="logo-wrap" href="index.html" aria-label="Ir al inicio">
           <img
             class="logo-img"
             src="marca/TUESTE-1.png"
             alt="Tueste Specialty Coffee"
           />
-        </div>
+        </a>
         <nav class="nav-links" aria-label="Principal">
           <a href="#inicio">Inicio</a>
           <a href="#carta">Carta</a>
