@@ -177,17 +177,40 @@
         text-transform: uppercase;
       }
       .hero {
-        background: radial-gradient(
-            circle at 20% 20%,
-            rgba(182, 129, 80, 0.35),
-            transparent 55%
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg-video {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-bg-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-bg-video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(245, 237, 228, 0.92) 0%,
+            rgba(235, 199, 163, 0.7) 40%,
+            rgba(182, 129, 80, 0.55) 70%,
+            rgba(210, 176, 142, 0.5) 100%
           ),
           radial-gradient(
-            circle at 80% 0%,
-            rgba(76, 53, 36, 0.35),
-            transparent 45%
-          ),
-          linear-gradient(135deg, #f6efe6 0%, #e6d1b8 60%, #d2b08e 100%);
+            circle at 75% 50%,
+            rgba(182, 129, 80, 0.35),
+            transparent 60%
+          );
+        pointer-events: none;
+      }
+      .hero .container {
+        position: relative;
+        z-index: 1;
       }
       .hero-grid {
         display: grid;
@@ -416,7 +439,7 @@
       }
       .menu-visuals {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1.125rem;
         margin: 1.75rem 0 0.5rem;
       }
@@ -1246,6 +1269,16 @@
 
     <main>
       <section id="inicio" class="hero">
+        <div class="hero-bg-video">
+          <video
+            src="/marca/video-granos.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-hidden="true"
+          ></video>
+        </div>
         <div class="container hero-grid">
           <div>
             <span class="badge">Tueste Specialty Coffee</span>
@@ -1268,15 +1301,13 @@
                 Weekly roasting in Cordoba for maximum freshness.
               </p>
             </div>
-            <div class="photo-frame hero-photo video-frame">
-              <video
-                src="/marca/video-granos.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                aria-label="Specialty coffee beans"
-              ></video>
+            <div class="photo-frame hero-photo">
+              <img
+                src="/marca/imagen%20taza%20granos.jpg"
+                alt="Coffee cup with beans"
+                loading="eager"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
@@ -1289,6 +1320,14 @@
             Specialty coffee, drinks, and pastries designed to be enjoyed.
           </p>
           <div class="menu-visuals">
+            <div class="photo-frame">
+              <img
+                src="/assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.jpg"
+                alt="Overhead coffee"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="photo-frame video-frame">
               <video
                 src="/marca/video-filtro.mp4"
