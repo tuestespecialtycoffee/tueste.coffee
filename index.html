@@ -445,11 +445,9 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.125rem;
       }
-      .menu-visuals {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1.125rem;
-        margin: 1.75rem 0 0.5rem;
+      .menu-visual-inline {
+        grid-column: 1 / -1;
+        margin: 0.5rem 0;
       }
       .menu-panel {
         background: #231813;
@@ -1165,9 +1163,6 @@
         .menu-grid {
           grid-template-columns: 1fr;
         }
-        .menu-visuals {
-          grid-template-columns: 1fr;
-        }
         .playlist-grid {
           grid-template-columns: 1fr;
         }
@@ -1328,8 +1323,8 @@
           <p class="muted">
             Café de especialidad, bebidas y repostería pensadas para disfrutar.
           </p>
-          <div class="menu-visuals">
-            <div class="photo-frame">
+          <div class="menu-grid" style="margin-top: 1.5rem">
+            <div class="photo-frame menu-visual-inline">
               <img
                 src="assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.jpg"
                 alt="Café cenital"
@@ -1337,26 +1332,6 @@
                 decoding="async"
               />
             </div>
-            <div class="photo-frame video-frame">
-              <video
-                src="marca/video-filtro.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                aria-label="Preparación de café filtro"
-              ></video>
-            </div>
-            <div class="photo-frame">
-              <img
-                src="marca/imagen%20cookie.jpg"
-                alt="Dulces artesanos"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-          <div class="menu-grid" style="margin-top: 1.5rem">
             <div class="menu-panel">
               <h3 class="menu-title">Cafés espresso</h3>
               <div class="menu-list">
@@ -1379,6 +1354,16 @@
                 <div class="menu-row"><span>Latte XL</span><span class="menu-price">4.50€</span></div>
                 <div class="menu-row"><span>Flat White</span><span class="menu-price">3.80€</span></div>
               </div>
+            </div>
+            <div class="photo-frame video-frame menu-visual-inline">
+              <video
+                src="marca/video-filtro.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                aria-label="Preparación de café filtro"
+              ></video>
             </div>
             <div class="menu-panel">
               <h3 class="menu-title">Cafés fríos</h3>
@@ -1516,6 +1501,14 @@
                 <div class="menu-row"><span>Brioche de salmón</span><span class="menu-price">4.90€</span></div>
                 <div class="menu-row"><span>Brioche pastrami y trufa</span><span class="menu-price">4.20€</span></div>
               </div>
+            </div>
+            <div class="photo-frame menu-visual-inline">
+              <img
+                src="marca/imagen%20cookie.jpg"
+                alt="Dulces artesanos"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="menu-panel">
               <h3 class="menu-title">Dulces</h3>
