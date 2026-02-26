@@ -305,7 +305,21 @@
         background: #1a120e;
         min-height: 11.25rem;
       }
-      .photo-frame img {
+      .photo-frame img,
+      .photo-frame video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .video-frame {
+        position: relative;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        background: #1a120e;
+      }
+      .video-frame video {
         display: block;
         width: 100%;
         height: 100%;
@@ -324,7 +338,8 @@
         aspect-ratio: 16 / 9;
         min-height: 0;
       }
-      .hero-photo img {
+      .hero-photo img,
+      .hero-photo video {
         object-position: center;
       }
       .grain-banner {
@@ -1253,13 +1268,15 @@
                 Weekly roasting in Cordoba for maximum freshness.
               </p>
             </div>
-            <div class="photo-frame hero-photo">
-              <img
-                src="/marca/imagen%20taza%20granos.jpg"
-                alt="Coffee cup with beans"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="photo-frame hero-photo video-frame">
+              <video
+                src="/marca/video-granos.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                aria-label="Specialty coffee beans"
+              ></video>
             </div>
           </div>
         </div>
@@ -1272,13 +1289,15 @@
             Specialty coffee, drinks, and pastries designed to be enjoyed.
           </p>
           <div class="menu-visuals">
-            <div class="photo-frame">
-              <img
-                src="/assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.jpg"
-                alt="Overhead coffee"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="photo-frame video-frame">
+              <video
+                src="/marca/video-filtro.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                aria-label="Filter coffee preparation"
+              ></video>
             </div>
             <div class="photo-frame">
               <img
