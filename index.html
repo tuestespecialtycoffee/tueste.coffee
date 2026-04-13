@@ -48,9 +48,21 @@
       }
       body {
         margin: 0;
+        font-size: 1rem;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        opacity: 0.16;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
       }
       a {
         color: inherit;
@@ -74,6 +86,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
+        position: relative;
       }
       .nav-links {
         display: flex;
@@ -269,38 +282,63 @@
         border-radius: 1rem;
         padding: 1.5rem;
         box-shadow: 0 0.5rem 1.25rem rgba(76, 53, 36, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .card:hover {
+        transform: translateY(-0.1875rem);
+        box-shadow: 0 1rem 2rem rgba(26, 18, 13, 0.22);
+      }
+      .coffee-card {
+        position: relative;
+      }
+      .coffee-sca-badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 999rem;
+        background: rgba(182, 129, 80, 0.15);
+        color: #e0b98f;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        line-height: 1;
+      }
+      .flavor-profile {
+        display: flex;
+        gap: 0.25rem;
+        height: 0.25rem;
+        margin-top: -0.25rem;
+        margin-bottom: 0.75rem;
+      }
+      .flavor-segment {
+        border-radius: 0.125rem;
+      }
+      .flavor-segment.chocolate {
+        background: rgba(182, 129, 80, 0.88);
+      }
+      .flavor-segment.caramel {
+        background: rgba(224, 185, 143, 0.72);
+      }
+      .flavor-segment.fruity {
+        background: rgba(245, 215, 177, 0.62);
+      }
+      .flavor-segment.floral {
+        background: rgba(247, 239, 231, 0.56);
       }
       .hero-visual {
-        background: linear-gradient(160deg, #1f1510 0%, #3b2a1e 55%, #6b4426 100%);
-        border-radius: 0.75rem;
-        padding: 2rem;
-        color: #f7efe7;
-        min-height: 20rem;
-        display: grid;
-        gap: 1rem;
-        position: relative;
+        aspect-ratio: 9 / 16;
+        max-height: 32.5rem;
+        border-radius: 1rem;
         overflow: hidden;
-        box-shadow: 0 1.5rem 3rem rgba(26, 18, 13, 0.4);
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        box-shadow: 0 1.5rem 3rem rgba(26, 18, 13, 0.45);
+        background: #1a120e;
       }
-      .hero-visual h3 {
-        color: #fff6ec;
-        text-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.35);
-      }
-      .hero-visual::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-            circle at 15% 20%,
-            rgba(255, 255, 255, 0.12),
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 85% 80%,
-            rgba(235, 199, 163, 0.25),
-            transparent 55%
-          );
-        pointer-events: none;
+      .hero-visual video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
       .image-placeholder {
         position: relative;
@@ -365,6 +403,12 @@
         object-fit: contain;
         background: #1a120e;
       }
+      .about-photo .photo-frame.about-photo-accent {
+        max-height: 11.25rem;
+        transform: rotate(-1.5deg);
+        border: 0.125rem solid rgba(182, 129, 80, 0.3);
+        box-shadow: 0 0.5rem 1.5rem rgba(26, 18, 13, 0.25);
+      }
       .hero-photo {
         aspect-ratio: 16 / 9;
         min-height: 0;
@@ -401,7 +445,53 @@
       }
       .hero-title {
         font-family: "STIX Two Text", serif;
-        letter-spacing: 0.02em;
+        font-size: clamp(2.8rem, 6vw, 4.8rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #4c3524 0%, #b68150 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero .badge,
+      .hero .hero-title,
+      .hero .lead,
+      .hero .cta {
+        opacity: 0;
+        transform: translateY(1.25rem);
+        animation: heroFadeSlide 0.8s ease forwards;
+      }
+      .hero .badge {
+        animation-delay: 0s;
+      }
+      .hero .hero-title {
+        animation-delay: 0.15s;
+      }
+      .hero .lead {
+        animation-delay: 0.3s;
+      }
+      .hero .cta {
+        animation-delay: 0.45s;
+      }
+      @keyframes heroFadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(1.25rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero .badge,
+        .hero .hero-title,
+        .hero .lead,
+        .hero .cta {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
       }
       .hero-lead {
         color: #ead9c8;
@@ -444,6 +534,41 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.125rem;
+      }
+      .menu-tabs {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+      }
+      .menu-tab-btn {
+        border: 0.0625rem solid rgba(235, 199, 163, 0.25);
+        background: #1f1510;
+        color: #f2e8df;
+        border-radius: 999rem;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+      .menu-tab-btn:hover {
+        background: rgba(182, 129, 80, 0.12);
+      }
+      .menu-tab-btn:active {
+        transform: translateY(0.0625rem);
+      }
+      .menu-tab-btn.is-active {
+        background: rgba(182, 129, 80, 0.2);
+        border-color: rgba(182, 129, 80, 0.6);
+      }
+      .menu-tab-panels {
+        margin-top: 1rem;
+      }
+      .menu-tab-pane {
+        display: none;
+      }
+      .menu-tab-pane.is-active {
+        display: grid;
       }
       .menu-visual-inline {
         grid-column: 1 / -1;
@@ -497,11 +622,50 @@
         box-shadow: 0 1.125rem 2.25rem rgba(26, 18, 13, 0.25);
       }
       .section-menu {
+        position: relative;
         background: #1b120e;
         color: #f2e8df;
       }
+      .section-menu::before,
+      .section-menu::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3rem;
+        pointer-events: none;
+      }
+      .section-menu::before {
+        top: -3rem;
+        background: linear-gradient(135deg, var(--crema-light) 0%, #1b120e 100%);
+        clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      }
+      .section-menu::after {
+        bottom: -3rem;
+        background: linear-gradient(135deg, #1b120e 0%, var(--crema-light) 100%);
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+      }
       .section-menu .muted {
         color: #d7b99a;
+      }
+      .valores-card {
+        position: relative;
+        border-left: 0.1875rem solid rgba(182, 129, 80, 0.6);
+      }
+      .valores-card::after {
+        content: attr(data-step);
+        position: absolute;
+        top: 0.5rem;
+        right: 0.75rem;
+        font-family: "STIX Two Text", serif;
+        font-size: 3.5rem;
+        line-height: 1;
+        color: rgba(182, 129, 80, 0.15);
+        pointer-events: none;
+      }
+      .valores-card h3 {
+        font-size: 1.125rem;
+        font-weight: 700;
       }
       .section-playlists {
         background: #201510;
@@ -1042,6 +1206,18 @@
       .wifi-widget-btn.copied {
         background: #4caf50;
       }
+      .wifi-widget-dismiss {
+        display: none;
+        background: transparent;
+        border: none;
+        color: var(--castano);
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .wifi-widget.is-hidden {
+        display: none;
+      }
       @media (max-width: 37.5em) {
         .wifi-widget {
           bottom: 1rem;
@@ -1136,16 +1312,199 @@
           grid-template-columns: 1fr;
         }
       }
+      .contact-showcase {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 1rem;
+        align-items: start;
+      }
+      .contact-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+      .contact-gallery .photo-frame:first-child {
+        grid-column: 1 / -1;
+        min-height: 16rem;
+      }
+      .contact-gallery .photo-frame {
+        min-height: 11rem;
+      }
+      .contact-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        align-content: start;
+        grid-auto-rows: minmax(5.5rem, auto);
+      }
+      .contact-link-card {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        border: 0.0625rem solid rgba(182, 129, 80, 0.25);
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 237, 228, 0.9));
+        color: var(--cafe);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .contact-link-card:hover {
+        transform: translateY(-0.0625rem);
+        box-shadow: 0 0.5rem 1rem rgba(76, 53, 36, 0.12);
+      }
+      .contact-link-icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 999rem;
+        background: rgba(182, 129, 80, 0.18);
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .contact-link-text strong {
+        display: block;
+        font-size: 0.875rem;
+      }
+      .contact-link-text span {
+        font-size: 0.8125rem;
+        color: var(--madera);
+      }
+      .visit-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+      .visit-info-tile {
+        display: grid;
+        gap: 0.4rem;
+        padding: 0.9rem 1rem;
+        border-radius: 0.75rem;
+        border: 0.0625rem solid rgba(182, 129, 80, 0.2);
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 237, 228, 0.92));
+      }
+      .visit-info-head {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .visit-info-icon {
+        width: 1.9rem;
+        height: 1.9rem;
+        border-radius: 999rem;
+        background: rgba(182, 129, 80, 0.15);
+        display: grid;
+        place-items: center;
+        font-size: 0.875rem;
+        color: var(--castano);
+      }
+      .visit-info-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--cafe);
+      }
+      .visit-info-value {
+        font-size: 0.875rem;
+        color: var(--text);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .menu-grid > .reveal:nth-child(1),
+      .playlist-grid > .reveal:nth-child(1),
+      .playlist-grid-secondary > .reveal:nth-child(1),
+      .education-main > .reveal:nth-child(1),
+      .education-rail > .reveal:nth-child(1),
+      .origin-list > .reveal:nth-child(1),
+      .contact-links > .reveal:nth-child(1),
+      .grid-4 > .reveal:nth-child(1) { transition-delay: 0.05s; }
+      .menu-grid > .reveal:nth-child(2),
+      .playlist-grid > .reveal:nth-child(2),
+      .playlist-grid-secondary > .reveal:nth-child(2),
+      .education-main > .reveal:nth-child(2),
+      .education-rail > .reveal:nth-child(2),
+      .origin-list > .reveal:nth-child(2),
+      .contact-links > .reveal:nth-child(2),
+      .grid-4 > .reveal:nth-child(2) { transition-delay: 0.1s; }
+      .menu-grid > .reveal:nth-child(3),
+      .playlist-grid > .reveal:nth-child(3),
+      .playlist-grid-secondary > .reveal:nth-child(3),
+      .education-main > .reveal:nth-child(3),
+      .education-rail > .reveal:nth-child(3),
+      .origin-list > .reveal:nth-child(3),
+      .contact-links > .reveal:nth-child(3),
+      .grid-4 > .reveal:nth-child(3) { transition-delay: 0.15s; }
+      .menu-grid > .reveal:nth-child(4),
+      .playlist-grid > .reveal:nth-child(4),
+      .playlist-grid-secondary > .reveal:nth-child(4),
+      .education-main > .reveal:nth-child(4),
+      .education-rail > .reveal:nth-child(4),
+      .origin-list > .reveal:nth-child(4),
+      .contact-links > .reveal:nth-child(4),
+      .grid-4 > .reveal:nth-child(4) { transition-delay: 0.2s; }
+      .menu-grid > .reveal:nth-child(5),
+      .playlist-grid > .reveal:nth-child(5),
+      .playlist-grid-secondary > .reveal:nth-child(5),
+      .education-main > .reveal:nth-child(5),
+      .education-rail > .reveal:nth-child(5),
+      .origin-list > .reveal:nth-child(5),
+      .contact-links > .reveal:nth-child(5),
+      .grid-4 > .reveal:nth-child(5) { transition-delay: 0.25s; }
+      .menu-grid > .reveal:nth-child(6),
+      .playlist-grid > .reveal:nth-child(6),
+      .playlist-grid-secondary > .reveal:nth-child(6),
+      .education-main > .reveal:nth-child(6),
+      .education-rail > .reveal:nth-child(6),
+      .origin-list > .reveal:nth-child(6),
+      .contact-links > .reveal:nth-child(6),
+      .grid-4 > .reveal:nth-child(6) { transition-delay: 0.3s; }
+      @media (max-width: 56.25em) {
+        .contact-showcase {
+          grid-template-columns: 1fr;
+        }
+        .contact-links {
+          grid-template-columns: 1fr;
+        }
+        .visit-info-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-gallery .photo-frame:first-child {
+          grid-column: auto;
+        }
+      }
       footer {
         margin-top: auto;
         background: var(--cafe);
         color: var(--white);
+        border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);
       }
       footer .container {
-        padding: 2rem 1.5rem 2.5rem;
+        padding: 3rem 1.5rem 2.5rem;
         text-align: center;
         font-size: 0.8125rem;
         opacity: 0.9;
+      }
+      .footer-copy {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.375rem;
+      }
+      .footer-meta {
+        margin-top: 0.45rem;
+        opacity: 0.65;
+      }
+      .bean-icon {
+        width: 1rem;
+        height: 1rem;
+        color: rgba(224, 185, 143, 0.9);
       }
       @media (max-width: 56.25em) {
         .hero-grid {
@@ -1228,6 +1587,161 @@
           grid-template-columns: 1fr;
         }
       }
+      @media (max-width: 600px) {
+        .container {
+          padding: 1rem;
+        }
+        .section {
+          padding: 2.5rem 0;
+        }
+        body {
+          font-size: 1rem;
+        }
+        p,
+        li,
+        .muted,
+        .menu-row span,
+        .visit-info-value {
+          font-size: 0.9375rem;
+        }
+        h2 {
+          font-size: clamp(1.5rem, 5vw, 2.25rem);
+        }
+        header .container {
+          padding: 0.75rem 1rem;
+        }
+        .logo-img {
+          max-height: 2.25rem;
+        }
+        .nav-toggle {
+          min-width: 2.75rem;
+          min-height: 2.75rem;
+        }
+        .nav-links {
+          position: absolute;
+          top: calc(100% + 0.5rem);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100vw;
+          padding: 0.75rem 1rem 1rem;
+          background: rgba(245, 237, 228, 0.98);
+          border-top: 0.0625rem solid rgba(182, 129, 80, 0.2);
+          border-bottom: 0.0625rem solid rgba(182, 129, 80, 0.2);
+          z-index: 20;
+        }
+        .nav-links[aria-expanded="true"] {
+          animation: navSlideDown 0.25s ease;
+        }
+        .nav-links a {
+          min-height: 3rem;
+          display: flex;
+          align-items: center;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          padding: 2rem 0;
+        }
+        .hero-visual {
+          order: -1;
+          aspect-ratio: 4 / 5;
+          width: 100%;
+          max-height: none;
+        }
+        .hero-title {
+          font-size: clamp(2rem, 8vw, 3rem);
+        }
+        .menu-tabs {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+        }
+        .menu-tabs::-webkit-scrollbar {
+          display: none;
+        }
+        .menu-tab-btn {
+          flex: 0 0 auto;
+          min-height: 2.75rem;
+        }
+        .grid-4,
+        .menu-grid,
+        .playlist-grid,
+        .playlist-grid-secondary,
+        .education-main,
+        .education-visuals,
+        .about-layout,
+        .contact-links,
+        .visit-info-grid {
+          grid-template-columns: 1fr;
+        }
+        .origin-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .contact-showcase {
+          grid-template-columns: 1fr;
+        }
+        .contact-gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .contact-gallery .photo-frame:first-child {
+          grid-column: 1 / -1;
+        }
+        #cafe-granel .container > div[style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+        }
+        #cafe-granel .card {
+          padding: 1.125rem;
+        }
+        .wifi-widget {
+          left: 0;
+          right: 0;
+          bottom: 0;
+          max-width: none;
+          border-radius: 0.75rem 0.75rem 0 0;
+          padding: 1rem;
+          min-height: 4rem;
+        }
+        .wifi-widget-dismiss {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 2rem;
+          min-height: 2rem;
+        }
+        .footer-copy {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+      }
+      @keyframes navSlideDown {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -0.5rem);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+      @media (max-width: 600px) {
+        a,
+        button,
+        .origin-pill,
+        .playlist-cta,
+        .contact-link-card,
+        .menu-tab-btn,
+        .education-link,
+        .nav-links a {
+          min-width: 2.75rem;
+          min-height: 2.75rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero-visual {
+          aspect-ratio: 4 / 5;
+        }
+      }
       @media (prefers-reduced-motion: reduce) {
         * {
           animation: none !important;
@@ -1245,6 +1759,7 @@
             class="logo-img"
             src="marca/TUESTE-1.png"
             alt="Tueste Specialty Coffee"
+            loading="eager"
             decoding="async"
           />
         </a>
@@ -1280,6 +1795,7 @@
             muted
             loop
             playsinline
+            preload="none"
             aria-hidden="true"
           ></video>
         </div>
@@ -1294,25 +1810,15 @@
             <a class="cta" href="#carta">Ver carta</a>
           </div>
           <div class="hero-visual">
-            <h3>Tueste Specialty Coffee</h3>
-            <p class="hero-lead">
-              Un espacio cuidado, artesanal y tranquilo. Cada café tiene una
-              historia y cada taza busca su mejor versión.
-            </p>
-            <div class="hero-card">
-              <strong>Tueste fresco</strong>
-              <p style="margin: 0.375rem 0 0 0;">
-                Tostado semanal en Córdoba para máxima frescura.
-              </p>
-            </div>
-            <div class="photo-frame hero-photo">
-              <img
-                src="marca/imagen%20taza%20granos.jpg"
-                alt="Taza de café con granos"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
+            <video
+              src="marca/reel-tueste-cafes-con-s.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Reel Tueste Cafés con S"
+            ></video>
           </div>
         </div>
       </section>
@@ -1323,221 +1829,158 @@
           <p class="muted">
             Café de especialidad, bebidas y repostería pensadas para disfrutar.
           </p>
-          <div class="menu-grid" style="margin-top: 1.5rem">
-            <div class="photo-frame menu-visual-inline">
-              <img
-                src="assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.jpg"
-                alt="Café cenital"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Cafés espresso</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Ristretto</span><span class="menu-price">2.20€</span></div>
-                <div class="menu-row"><span>Espresso</span><span class="menu-price">2.20€</span></div>
-                <div class="menu-row"><span>Espresso doble</span><span class="menu-price">2.70€</span></div>
-                <div class="menu-row"><span>Lungo</span><span class="menu-price">2.20€</span></div>
-                <div class="menu-row"><span>Cortado</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Macchiato</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Americano</span><span class="menu-price">3.00€</span></div>
-                <div class="menu-row"><span>Americano XL</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Americano XXL</span><span class="menu-price">5.00€</span></div>
-                <div class="menu-row"><span>Filtro de la semana</span><span class="menu-price">3.50€</span></div>
+          <div class="menu-tabs" role="tablist" aria-label="Categorías de carta">
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Cafés</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="bebidas">Bebidas</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces">Dulces</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="suplementos">Suplementos</button>
+          </div>
+          <div class="menu-tab-panels">
+            <div class="menu-tab-pane is-active" data-menu-pane="cafes">
+              <div class="menu-grid">
+                <div class="photo-frame menu-visual-inline">
+                  <img
+                    src="assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.jpg"
+                    alt="Café cenital"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="photo-frame video-frame menu-visual-inline">
+                  <video
+                    src="marca/video-filtro.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-label="Preparación de café filtro"
+                  ></video>
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Cafés espresso</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Ristretto</span><span class="menu-price">2.20€</span></div>
+                    <div class="menu-row"><span>Espresso</span><span class="menu-price">2.20€</span></div>
+                    <div class="menu-row"><span>Espresso doble</span><span class="menu-price">2.70€</span></div>
+                    <div class="menu-row"><span>Lungo</span><span class="menu-price">2.20€</span></div>
+                    <div class="menu-row"><span>Cortado</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Macchiato</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Americano</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>Americano XL</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Americano XXL</span><span class="menu-price">5.00€</span></div>
+                    <div class="menu-row"><span>Filtro de la semana</span><span class="menu-price">3.50€</span></div>
+                  </div>
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Cafés con leche</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Cappuccino</span><span class="menu-price">3.40€</span></div>
+                    <div class="menu-row"><span>Cappuccino XL</span><span class="menu-price">4.40€</span></div>
+                    <div class="menu-row"><span>Latte</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>Latte XL</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Latte XXL</span><span class="menu-price">5.50€</span></div>
+                    <div class="menu-row"><span>Flat White</span><span class="menu-price">3.80€</span></div>
+                  </div>
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Cafés fríos</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Cold Brew</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cold Brew XL</span><span class="menu-price">5.00€</span></div>
+                    <div class="menu-row"><span>Cold Brew Latte</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Cold Brew Latte XL</span><span class="menu-price">5.50€</span></div>
+                    <div class="menu-row"><span>Iced Latte</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Iced Latte XL</span><span class="menu-price">5.50€</span></div>
+                    <div class="menu-row"><span>Iced Americano</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Iced Americano XL</span><span class="menu-price">5.50€</span></div>
+                    <div class="menu-row"><span>Espresso Tonic</span><span class="menu-price">4.50€</span></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Cafés con leche</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Cappuccino</span><span class="menu-price">3.40€</span></div>
-                <div class="menu-row"><span>Cappuccino XL</span><span class="menu-price">4.40€</span></div>
-                <div class="menu-row"><span>Latte</span><span class="menu-price">3.00€</span></div>
-                <div class="menu-row"><span>Latte XL</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Latte XXL</span><span class="menu-price">5.50€</span></div>
-                <div class="menu-row"><span>Flat White</span><span class="menu-price">3.80€</span></div>
+            <div class="menu-tab-pane" data-menu-pane="matcha">
+              <div class="menu-grid">
+                <div class="photo-frame menu-visual-inline">
+                  <img src="marca/DSC02112.jpg" alt="Bebidas especiales de Tueste" loading="lazy" decoding="async" />
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Matcha & Chai</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Matcha Latte</span><span class="menu-price">4.40€</span></div>
+                    <div class="menu-row"><span>Matcha Latte XL</span><span class="menu-price">5.00€</span></div>
+                    <div class="menu-row"><span>Matcha Latte XXL</span><span class="menu-price">6.00€</span></div>
+                    <div class="menu-row"><span>Iced Matcha Latte</span><span class="menu-price">5.30€</span></div>
+                    <div class="menu-row"><span>Iced Matcha Latte XL</span><span class="menu-price">6.00€</span></div>
+                    <div class="menu-row"><span>Chai Latte</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Chai Latte XL</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Chai Latte XXL</span><span class="menu-price">5.50€</span></div>
+                    <div class="menu-row"><span>Taza de cacao</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Moca</span><span class="menu-price">3.50€</span></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="photo-frame video-frame menu-visual-inline">
-              <video
-                src="marca/video-filtro.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                aria-label="Preparación de café filtro"
-              ></video>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Cafés fríos</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Cold Brew</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cold Brew XL</span><span class="menu-price">5.00€</span></div>
-                <div class="menu-row"><span>Iced Latte</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Iced Latte XL</span><span class="menu-price">5.50€</span></div>
-                <div class="menu-row"><span>Iced Americano</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Iced Americano XL</span><span class="menu-price">5.50€</span></div>
-                <div class="menu-row"><span>Espresso Tonic</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Filtro de la semana frío</span><span class="menu-price">3.50€</span></div>
+            <div class="menu-tab-pane" data-menu-pane="bebidas">
+              <div class="menu-grid">
+                <div class="photo-frame menu-visual-inline">
+                  <img src="marca/DSC02093.jpg" alt="Selección de bebidas en Tueste" loading="lazy" decoding="async" />
+                </div>
+                <div class="menu-panel"><h3 class="menu-title">Tés con teína</h3><div class="menu-list"><div class="menu-row"><span>English Breakfast</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Sencha BIO</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Menta Marroquí</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Pai Mu Tan BIO</span><span class="menu-price">2.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Infusiones sin teína</h3><div class="menu-list"><div class="menu-row"><span>Manzanilla</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Rooibos Canela Vainilla</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Jengibre Limón</span><span class="menu-price">2.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Agua</h3><div class="menu-list"><div class="menu-row"><span>Agua con gas 300ml</span><span class="menu-price">2.00€</span></div><div class="menu-row"><span>Agua 500ml</span><span class="menu-price">2.00€</span></div><div class="menu-row"><span>Mad Sparkling Water + Electrolitos</span><span class="menu-price">3.00€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Tónicas artesanales</h3><div class="menu-list"><div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div><div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div><div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Refrescos artesanales</h3><div class="menu-list"><div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Sr. Nuez Cola Sin Azúcar 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Avelina Navellate Naranja 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Cítrico Montoya Limón 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Bebidas funcionales</h3><div class="menu-list"><div class="menu-row"><span>Brite Piña Mango 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Brite Frambuesa y Menta 33cl</span><span class="menu-price">3.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Limonadas bio</h3><div class="menu-list"><div class="menu-row"><span>Linda Zumo Bio Limonada Jengibre y Agave 20cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Linda Zumo Bio Limonada Hibiscus y Agave 20cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Linda Zumo Bio Mandarina con Romero 20cl</span><span class="menu-price">3.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Tés helados</h3><div class="menu-list"><div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div><div class="menu-row"><span>Lindo Té Negro Limón 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Lindo Té Verde Lima & Jengibre 33cl</span><span class="menu-price">3.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Kombuchas</h3><div class="menu-list"><div class="menu-row"><span>Kom-Buchito Limón 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Kom-Buchito Naranja 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Kom-Buchito Frutos Rojos 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Cervezas artesanas</h3><div class="menu-list"><div class="menu-row"><span>Guadalquibeer Córdoba 4,5% Red Ale 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Guadalquibeer Jaén 5,2% Sweet Stout 33cl</span><span class="menu-price">3.80€</span></div><div class="menu-row"><span>La Palomareña Rubia 4,2% Hoppy Helles 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Lervig No Worries 0,5% IPA 33cl</span><span class="menu-price">4.20€</span></div><div class="menu-row"><span>Espiga Ginger Beer 0,0% Sin Alcohol 33cl</span><span class="menu-price">3.50€</span></div></div></div>
+                <div class="menu-panel"><h3 class="menu-title">Sidras</h3><div class="menu-list"><div class="menu-row"><span>Galipette Sidra de Manzana 0% Sin Alcohol 33cl</span><span class="menu-price">3.70€</span></div><div class="menu-row"><span>Kopparberg Fruta Mixta 4,5% 50cl</span><span class="menu-price">4.50€</span></div><div class="menu-row"><span>Kopparberg Frutos Rojos 4,5% 50cl</span><span class="menu-price">4.50€</span></div></div></div>
               </div>
             </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Matcha & Chai</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Matcha Latte</span><span class="menu-price">4.40€</span></div>
-                <div class="menu-row"><span>Matcha Latte XL</span><span class="menu-price">5.00€</span></div>
-                <div class="menu-row"><span>Matcha Latte XXL</span><span class="menu-price">6.00€</span></div>
-                <div class="menu-row"><span>Iced Matcha Latte</span><span class="menu-price">5.30€</span></div>
-                <div class="menu-row"><span>Iced Matcha Latte XL</span><span class="menu-price">6.00€</span></div>
-                <div class="menu-row"><span>Chai Latte</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Chai Latte XL</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Chai Latte XXL</span><span class="menu-price">5.50€</span></div>
-                <div class="menu-row"><span>Taza de cacao</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Moca</span><span class="menu-price">3.50€</span></div>
+            <div class="menu-tab-pane" data-menu-pane="dulces">
+              <div class="menu-grid">
+                <div class="photo-frame menu-visual-inline">
+                  <img
+                    src="marca/DSC01990.jpg"
+                    alt="Brownie artesano de Tueste"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Dulces</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Bizcocho limón y arándanos</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Bizcocho Naranja</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Brownie de chocolate y Oreo</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Cookie café y avellana</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie clásica</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie Dubai</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie Red Velvet con Chocolate Blanco</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie de pistacho y chocolate blanco</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie de limón</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Whoopie de café y dulce leche</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Whoopie de vainilla y nutela</span><span class="menu-price">4.50€</span></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Suplementos</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Extra Shot</span><span class="menu-price">+1.00€</span></div>
-                <div class="menu-row"><span>Leche vegetal (Avena/Soja/Almendra)</span><span class="menu-price">Gratis</span></div>
-                <div class="menu-row"><span>Leche sin lactosa</span><span class="menu-price">Gratis</span></div>
-                <div class="menu-row"><span>Sirope (Caramelo/Chocolate)</span><span class="menu-price">Gratis</span></div>
-                <div class="menu-row"><span>Canela</span><span class="menu-price">Gratis</span></div>
-                <div class="menu-row"><span>Cacao en polvo</span><span class="menu-price">Gratis</span></div>
+            <div class="menu-tab-pane" data-menu-pane="suplementos">
+              <div class="menu-grid">
+                <div class="photo-frame menu-visual-inline">
+                  <img src="marca/2-tueste_04.jpg" alt="Vaso de café de Tueste" loading="lazy" decoding="async" />
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Suplementos</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Extra Shot</span><span class="menu-price">+1.00€</span></div>
+                    <div class="menu-row"><span>Sirope (Caramelo/Chocolate/Vainilla/Chocolate Blanco)</span><span class="menu-price">+0.50€</span></div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Tés con teína</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>English Breakfast</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Sencha BIO</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Menta Marroquí</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Pai Mu Tan BIO</span><span class="menu-price">2.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Infusiones sin teína</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Manzanilla</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Rooibos Canela Vainilla</span><span class="menu-price">2.50€</span></div>
-                <div class="menu-row"><span>Jengibre Limón</span><span class="menu-price">2.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Agua</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Agua Con Gas 0,33L</span><span class="menu-price">2.00€</span></div>
-                <div class="menu-row"><span>Agua Mondariz sin gas 0,5L</span><span class="menu-price">2.00€</span></div>
-                <div class="menu-row"><span>Mad Sparkling Water + Electrolitos 33cl</span><span class="menu-price">3.00€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Tónicas artesanales</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div>
-                <div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div>
-                <div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Refrescos artesanales</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>La Fantástica Sr. Nuez Cola Sin Azúcar 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>La Fantástica Avelina Navellate Naranja 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>La Fantástica Cítrico Montoya Limón 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Bebidas funcionales</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Brite Piña Mango 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Brite Frambuesa y Menta 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Zumos bio premium</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Linda Zumo Bio Limonada Jengibre y Agave 20cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Linda Zumo Bio Limonada Hibiscus y Agave 20cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Linda Zumo Bio Mandarina con Romero 20cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Tés helados</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Lindo Té Negro Limón 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Lindo Té Verde Lima & Jengibre 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Kombuchas</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Kom-Buchito Limón 33cl</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Kom-Buchito Naranja 33cl</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Kom-Buchito Frutos Rojos 33cl</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Cervezas artesanas</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Guadalquibeer Córdoba 4,5% Red Ale 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Guadalquibeer Jaén 5,2% Sweet Stout 33cl</span><span class="menu-price">3.80€</span></div>
-                <div class="menu-row"><span>La Palomareña Rubia 4,2% Hoppy Helles 33cl</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Lervig No Worries 0,5% IPA 33cl</span><span class="menu-price">4.20€</span></div>
-                <div class="menu-row"><span>Espiga Ginger Beer 0,0% Sin Alcohol 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Sidras</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Galipette Sidra de Manzana 0% Sin Alcohol 33cl</span><span class="menu-price">3.70€</span></div>
-                <div class="menu-row"><span>Kopparberg Fruta Mixta 4,5% 50cl</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Kopparberg Frutos Rojos 4,5% 50cl</span><span class="menu-price">4.50€</span></div>
-              </div>
-            </div>
-            <div class="photo-frame menu-visual-inline">
-              <img
-                src="marca/imagen%20cookie.jpg"
-                alt="Dulces artesanos"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="menu-panel">
-              <h3 class="menu-title">Dulces</h3>
-              <div class="menu-list">
-                <div class="menu-row"><span>Bizcocho limón y arándanos</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Bizcocho Naranja</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Bizcocho Nueces</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Bizcocho Chocolate</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Brownie chocolate</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Cookie café y avellana</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cookie clásica</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cookie Dubai</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cookie de chocolate y café</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cookie Pistacho</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cookie de limón</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Cookie red velvet con chocolate blanco</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>Magdalena aceite</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Magdalena Chocolate</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Macaron (ud)</span><span class="menu-price">1.80€</span></div>
-                <div class="menu-row"><span>Mini cookie de chocolate y café</span><span class="menu-price">1.50€</span></div>
-                <div class="menu-row"><span>Whoopie de café y dulce leche</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Whoopie de vainilla y nutela</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Cupcake Kinder</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Cupcake Lotus</span><span class="menu-price">4.50€</span></div>
-                <div class="menu-row"><span>Bizcocho de yogur y nueces</span><span class="menu-price">4.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel">
-              <div class="menu-note">Coming soon</div>
-              <h3 class="menu-title">Dulces de temporada</h3>
-              <p>Próximamente.</p>
             </div>
           </div>
           <div class="grain-banner">
@@ -1565,27 +2008,60 @@
             </p>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem;">
-            <div class="card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 84</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Colombia Huila Premium</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Lavado · Pitalito, Huila</p>
               <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Caturra y Castillo · 1.000–1.200 m · SCA 84</p>
               <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate, almendra tostada, manzana roja y limón</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 45%;"></span>
+                <span class="flavor-segment fruity" style="width: 35%;"></span>
+                <span class="flavor-segment caramel" style="width: 20%;"></span>
+              </div>
               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">11,00€</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00€</div>
                 </div>
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">36,00€</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46,00€</div>
                 </div>
               </div>
             </div>
-            <div class="card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 84</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Colombia Orgánico</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Café de especialidad</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 50%;"></span>
+                <span class="flavor-segment caramel" style="width: 30%;"></span>
+                <span class="flavor-segment fruity" style="width: 20%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46,00€</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 84</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">México Descafeinado</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Water Process · Chiapas</p>
               <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Bourbon, Mundo Novo, Pacas, Typica · 800–1.200 m · SCA 84</p>
               <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate, tabaco</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 60%;"></span>
+                <span class="flavor-segment caramel" style="width: 25%;"></span>
+                <span class="flavor-segment floral" style="width: 15%;"></span>
+              </div>
               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
@@ -1597,27 +2073,39 @@
                 </div>
               </div>
             </div>
-            <div class="card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 80</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Etiopía Sidamo</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Lavado · Región Sidamo</p>
               <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Premium · Intenso, floral a jazmín · SCA 80</p>
               <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Ciruela amarilla, cítricos. Cuerpo medio con final limpio y prolongado</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment fruity" style="width: 45%;"></span>
+                <span class="flavor-segment floral" style="width: 35%;"></span>
+                <span class="flavor-segment caramel" style="width: 20%;"></span>
+              </div>
               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">11,00€</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00€</div>
                 </div>
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">38,00€</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46,00€</div>
                 </div>
               </div>
             </div>
-            <div class="card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 86,25</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Nicaragua Montecristo</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Lavado · Cajamarca</p>
               <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Typica · 1.200–1.500 m · USDA Organic · SCA 86,25</p>
               <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Jazmín y frutas de hueso</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment floral" style="width: 45%;"></span>
+                <span class="flavor-segment fruity" style="width: 35%;"></span>
+                <span class="flavor-segment caramel" style="width: 20%;"></span>
+              </div>
               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
@@ -1629,11 +2117,17 @@
                 </div>
               </div>
             </div>
-            <div class="card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 85</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Costa Rica La Pantera</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Fermentación 16h · Tarrazú</p>
               <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Caturra y Catuai · 1.400–1.900 m · Fairtrade & Rainforest Alliance · SCA 85</p>
               <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Frutal, cítrico, frutas rojas, chocolate y nueces. Acidez brillante, cuerpo dulce y complejo con postgusto a ciruela y chocolate</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment fruity" style="width: 40%;"></span>
+                <span class="flavor-segment chocolate" style="width: 35%;"></span>
+                <span class="flavor-segment caramel" style="width: 25%;"></span>
+              </div>
               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
@@ -1645,11 +2139,17 @@
                 </div>
               </div>
             </div>
-            <div class="card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 87</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Geisha Finca San José</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Natural · Santa Bárbara</p>
               <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Premium · SCA 87</p>
               <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Miel y chocolate, acidez cítrica, cuero delicado</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment floral" style="width: 40%;"></span>
+                <span class="flavor-segment chocolate" style="width: 35%;"></span>
+                <span class="flavor-segment fruity" style="width: 25%;"></span>
+              </div>
               <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
@@ -1658,6 +2158,48 @@
                 <div style="flex: 1;">
                   <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">62,00€</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 86</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Icatú</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Café de especialidad</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment fruity" style="width: 40%;"></span>
+                <span class="flavor-segment chocolate" style="width: 35%;"></span>
+                <span class="flavor-segment floral" style="width: 25%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">62,00€</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 85</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Opatoro</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Café de especialidad</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment caramel" style="width: 40%;"></span>
+                <span class="flavor-segment chocolate" style="width: 35%;"></span>
+                <span class="flavor-segment fruity" style="width: 25%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">58,00€</div>
                 </div>
               </div>
             </div>
@@ -1682,19 +2224,19 @@
             recorrido claro y un lugar propio.
           </p>
           <div class="grid-4" style="margin-top: 1.5rem">
-            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+            <div class="card valores-card" data-step="01" style="background: #2b1f17; color: #f2e8df;">
               <h3>Origen con criterio</h3>
               <p>Selección consciente, trazabilidad y perfil definido.</p>
             </div>
-            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+            <div class="card valores-card" data-step="02" style="background: #2b1f17; color: #f2e8df;">
               <h3>Café Sin Intermediarios</h3>
               <p>Aliado clave para asegurar consistencia y calidad.</p>
             </div>
-            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+            <div class="card valores-card" data-step="03" style="background: #2b1f17; color: #f2e8df;">
               <h3>Tueste fresco</h3>
               <p>Tostado semanal en Córdoba para máxima frescura.</p>
             </div>
-            <div class="card" style="background: #2b1f17; color: #f2e8df;">
+            <div class="card valores-card" data-step="04" style="background: #2b1f17; color: #f2e8df;">
               <h3>Repostería de autor</h3>
               <p>Hecha aquí, pensada para el café.</p>
             </div>
@@ -2183,15 +2725,22 @@
             <div class="about-photo">
               <div class="photo-frame">
                 <img
-                  src="assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_WhatsApp_Image_2025-12-31_at_21.49.41-40c19b17-89f8-4896-a975-903df3e1f63b.jpg"
-                  alt="Pepe y Ricardo en Conil de la Frontera, mayo de 2025"
+                  src="marca/1892.jpg"
+                  alt="Ricardo y Pepe frente al escaparate de Tueste Specialty Coffee, Calle Deanes, Córdoba"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="photo-frame about-photo-accent" style="margin-top: 0.75rem;">
+                <img
+                  src="marca/1892.jpg"
+                  alt="Ricardo y Pepe frente al escaparate de Tueste Specialty Coffee, Calle Deanes, Córdoba"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
               <p class="muted" style="margin-top: 0.75rem;">
-                Ricardo (izquierda) y Pepe (derecha). Conil de la Frontera, mayo
-                de 2025. El día que empezó Tueste.
+                Ricardo y Pepe frente al escaparate de Tueste · Calle Deanes, Córdoba.
               </p>
             </div>
           </div>
@@ -2202,12 +2751,63 @@
         <div class="container">
           <h2>Visítanos</h2>
           <div class="card">
-            <p><strong>Dirección:</strong> Calle Deanes 12, Córdoba</p>
-            <p><strong>Horario:</strong> 9:30–17:30</p>
-            <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/34659751455" target="_blank" rel="noopener noreferrer">+34 659751455</a></p>
-            <p><strong>Email corporativo:</strong> <a href="mailto:tueste@tueste.coffee">tueste@tueste.coffee</a></p>
-            <p><strong>Instagram:</strong> <a href="https://www.instagram.com/tuestecoffee" target="_blank" rel="noopener noreferrer">@tuestecoffee</a></p>
-            <p><strong>Google:</strong> <a href="https://share.google/vOISnEHiuRX46pcmP" target="_blank" rel="noopener noreferrer">Perfil y reseñas</a></p>
+            <div class="visit-info-grid">
+              <div class="visit-info-tile">
+                <div class="visit-info-head"><span class="visit-info-icon">📍</span><span class="visit-info-label">Dirección</span></div>
+                <div class="visit-info-value">Calle Deanes 12, Córdoba</div>
+              </div>
+              <div class="visit-info-tile">
+                <div class="visit-info-head"><span class="visit-info-icon">🕒</span><span class="visit-info-label">Horario</span></div>
+                <div class="visit-info-value">9:00–19:00</div>
+              </div>
+              <div class="visit-info-tile">
+                <div class="visit-info-head"><span class="visit-info-icon">☎</span><span class="visit-info-label">Teléfono</span></div>
+                <div class="visit-info-value"><a href="https://wa.me/34659751455" target="_blank" rel="noopener noreferrer">+34 659751455</a></div>
+              </div>
+              <div class="visit-info-tile">
+                <div class="visit-info-head"><span class="visit-info-icon">@</span><span class="visit-info-label">Email</span></div>
+                <div class="visit-info-value"><a href="mailto:tueste@tueste.coffee">tueste@tueste.coffee</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-showcase">
+            <div class="contact-gallery">
+              <div class="photo-frame">
+                <img src="marca/DSC02093.jpg" alt="Barra de Tueste con preparación de café" loading="lazy" decoding="async" />
+              </div>
+              <div class="photo-frame">
+                <img src="marca/DSC02112.jpg" alt="Detalle de bebidas y ambiente en Tueste" loading="lazy" decoding="async" />
+              </div>
+              <div class="photo-frame video-frame">
+                <video
+                  src="marca/reel-tueste-cafes-con-s.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-label="Reel de Tueste Cafés con S"
+                ></video>
+              </div>
+            </div>
+            <div class="contact-links">
+              <a class="contact-link-card" href="https://www.instagram.com/tuestecoffee" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link-icon">IG</span>
+                <span class="contact-link-text"><strong>Instagram</strong><span>@tuestecoffee</span></span>
+              </a>
+              <a class="contact-link-card" href="https://share.google/vOISnEHiuRX46pcmP" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link-icon">G</span>
+                <span class="contact-link-text"><strong>Google</strong><span>Perfil y reseñas</span></span>
+              </a>
+              <a class="contact-link-card" href="mailto:tueste@tueste.coffee">
+                <span class="contact-link-icon">@</span>
+                <span class="contact-link-text"><strong>Email</strong><span>tueste@tueste.coffee</span></span>
+              </a>
+              <a class="contact-link-card" href="https://wa.me/34659751455" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link-icon">WA</span>
+                <span class="contact-link-text"><strong>Teléfono / WhatsApp</strong><span>+34 659751455</span></span>
+              </a>
+            </div>
           </div>
           <div class="wifi-section">
             <div class="wifi-section-header">
@@ -2238,7 +2838,14 @@
 
     <footer>
       <div class="container">
-        © 2026 Tueste Specialty Coffee · Córdoba, España
+        <div class="footer-copy">
+          <svg class="bean-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="12" cy="12" rx="7" ry="10" stroke="currentColor" stroke-width="1.4"></ellipse>
+            <path d="M12 4.5C10.5 7 10 9.5 10 12C10 14.5 10.5 17 12 19.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </svg>
+          <span>© 2026 Tueste Specialty Coffee · Córdoba, España</span>
+        </div>
+        <div class="footer-meta">Calle Deanes 12 · Córdoba · tueste.coffee</div>
       </div>
     </footer>
     <script>
@@ -2572,6 +3179,54 @@
       document.addEventListener('DOMContentLoaded', function() {
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const wifiWidget = document.querySelector('.wifi-widget');
+        const wifiWidgetDismiss = document.querySelector('.wifi-widget-dismiss');
+        const menuTabButtons = document.querySelectorAll('.menu-tab-btn');
+        const menuTabPanes = document.querySelectorAll('.menu-tab-pane');
+        const revealTargets = document.querySelectorAll('.card, .menu-panel, .playlist-card, .education-card, .origin-pill, .contact-link-card');
+        revealTargets.forEach(function(el) {
+          el.classList.add('reveal');
+        });
+
+        const revealObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        revealTargets.forEach(function(el) {
+          revealObserver.observe(el);
+        });
+        if (menuTabButtons.length && menuTabPanes.length) {
+          menuTabButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+              const target = button.getAttribute('data-menu-tab');
+              menuTabButtons.forEach(function(btn) {
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-selected', 'false');
+              });
+              menuTabPanes.forEach(function(pane) {
+                pane.classList.remove('is-active');
+                pane.style.display = 'none';
+              });
+              button.classList.add('is-active');
+              button.setAttribute('aria-selected', 'true');
+              const activePane = document.querySelector('[data-menu-pane=\"' + target + '\"]');
+              if (activePane) {
+                activePane.classList.add('is-active');
+                activePane.style.display = 'grid';
+              }
+            });
+          });
+        }
+        if (wifiWidget && wifiWidgetDismiss) {
+          wifiWidgetDismiss.addEventListener('click', function() {
+            wifiWidget.classList.add('is-hidden');
+          });
+        }
         
         if (navToggle && navLinks) {
           navToggle.addEventListener('click', function() {
@@ -2652,6 +3307,7 @@
           <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z" fill="currentColor"/>
         </svg>
       </button>
+      <button class="wifi-widget-dismiss" type="button" aria-label="Cerrar widget WiFi">×</button>
     </div>
 
     <!-- Cloudflare Web Analytics -->
@@ -2660,3 +3316,6 @@
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script>
   </body>
 </html>
+
+
+
