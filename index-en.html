@@ -389,17 +389,15 @@
       .about-photo .photo-frame {
         background: #1a120e;
         height: auto;
+        min-height: 0;
       }
-      .about-photo img {
+      .about-photo .photo-frame img {
+        display: block;
+        width: 100%;
         height: auto;
         object-fit: contain;
+        object-position: center;
         background: #1a120e;
-      }
-      .about-photo .photo-frame.about-photo-accent {
-        max-height: 11.25rem;
-        transform: rotate(-1.5deg);
-        border: 0.125rem solid rgba(182, 129, 80, 0.3);
-        box-shadow: 0 0.5rem 1.5rem rgba(26, 18, 13, 0.25);
       }
       .hero-photo {
         aspect-ratio: 16 / 9;
@@ -2738,14 +2736,6 @@
             </div>
             <div class="about-photo">
               <div class="photo-frame">
-                <img
-                  src="/marca/1892.jpg"
-                  alt="Ricardo y Pepe frente al escaparate de Tueste Specialty Coffee, Calle Deanes, Córdoba"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="photo-frame about-photo-accent" style="margin-top: 0.75rem;">
                 <img
                   src="/marca/1892.jpg"
                   alt="Ricardo y Pepe frente al escaparate de Tueste Specialty Coffee, Calle Deanes, Córdoba"
