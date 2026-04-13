@@ -1820,8 +1820,15 @@
           <p class="muted">
             Specialty coffee, drinks, and pastries designed to be enjoyed.
           </p>
+          <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Coffees</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="drinks">Drinks</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="sweets">Sweets</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="addons">Add-ons</button>
+          </div>
           <div class="menu-grid" style="margin-top: 1.5rem">
-            <div class="photo-frame menu-visual-inline">
+            <div class="photo-frame menu-visual-inline" data-menu-group="cafes">
               <img
                 src="/assets/c__Users_FX505_AppData_Roaming_Cursor_User_workspaceStorage_9a69c259d2a81842e6e05b6649f90109_images_imagen_taza-e0cee953-f7d0-4109-9547-5e6df926d59a.jpg"
                 alt="Overhead coffee"
@@ -1829,7 +1836,7 @@
                 decoding="async"
               />
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="cafes">
               <h3 class="menu-title">Espresso coffees</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Ristretto</span><span class="menu-price">2.20€</span></div>
@@ -1844,7 +1851,7 @@
                 <div class="menu-row"><span>Filter of the week</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="cafes">
               <h3 class="menu-title">Milk coffees</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Cappuccino</span><span class="menu-price">3.40€</span></div>
@@ -1855,7 +1862,7 @@
                 <div class="menu-row"><span>Flat White</span><span class="menu-price">3.80€</span></div>
               </div>
             </div>
-            <div class="photo-frame video-frame menu-visual-inline">
+            <div class="photo-frame video-frame menu-visual-inline" data-menu-group="cafes">
               <video
                 src="/marca/video-filtro.mp4"
                 autoplay
@@ -1866,7 +1873,7 @@
                 aria-label="Filter coffee preparation"
               ></video>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="cafes">
               <h3 class="menu-title">Iced coffees</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Cold Brew</span><span class="menu-price">3.50€</span></div>
@@ -1880,7 +1887,7 @@
                 <div class="menu-row"><span>Espresso Tonic</span><span class="menu-price">4.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="matcha">
               <h3 class="menu-title">Matcha & Chai</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Matcha Latte</span><span class="menu-price">4.40€</span></div>
@@ -1895,14 +1902,17 @@
                 <div class="menu-row"><span>Mocha</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="photo-frame menu-visual-inline" data-menu-group="addons">
+              <img src="/marca/2-tueste_04.jpg" alt="Tueste coffee cup" loading="lazy" decoding="async" />
+            </div>
+            <div class="menu-panel" data-menu-group="addons">
               <h3 class="menu-title">Add-ons</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Extra Shot</span><span class="menu-price">+1.00€</span></div>
                 <div class="menu-row"><span>Syrup (Caramel/Chocolate/Vanilla/White Chocolate)</span><span class="menu-price">+0.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Teas with caffeine</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>English Breakfast</span><span class="menu-price">2.50€</span></div>
@@ -1911,7 +1921,7 @@
                 <div class="menu-row"><span>Pai Mu Tan BIO</span><span class="menu-price">2.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Caffeine-free infusions</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Chamomile</span><span class="menu-price">2.50€</span></div>
@@ -1919,7 +1929,7 @@
                 <div class="menu-row"><span>Ginger Lemon</span><span class="menu-price">2.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Water</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Sparkling water 300ml</span><span class="menu-price">2.00€</span></div>
@@ -1927,7 +1937,7 @@
                 <div class="menu-row"><span>Mad Sparkling Water + Electrolytes</span><span class="menu-price">3.00€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Artisan tonics</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Gemellii Pink Grapefruit Tonic 20cl</span><span class="menu-price">3.00€</span></div>
@@ -1935,7 +1945,7 @@
                 <div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Artisan soft drinks</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div>
@@ -1945,14 +1955,14 @@
                 <div class="menu-row"><span>La Fantástica Lúpulo Augusto Hopped Tonic 33cl</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Functional drinks</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Brite Pineapple Mango 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Brite Raspberry & Mint 33cl</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Organic lemonades</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Linda Organic Ginger & Agave Lemonade 20cl</span><span class="menu-price">3.50€</span></div>
@@ -1960,7 +1970,7 @@
                 <div class="menu-row"><span>Linda Organic Mandarin & Rosemary 20cl</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Iced teas</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div>
@@ -1968,7 +1978,7 @@
                 <div class="menu-row"><span>Lindo Green Tea Lime & Ginger 33cl</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Kombuchas</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Kom-Buchito Lemon 33cl</span><span class="menu-price">4.00€</span></div>
@@ -1977,7 +1987,7 @@
                 <div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Craft beers</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Guadalquibeer Cordoba 4.5% Red Ale 33cl</span><span class="menu-price">3.50€</span></div>
@@ -1987,7 +1997,7 @@
                 <div class="menu-row"><span>Espiga Ginger Beer 0.0% Alcohol-Free 33cl</span><span class="menu-price">3.50€</span></div>
               </div>
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="drinks">
               <h3 class="menu-title">Ciders</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Galipette Apple Cider 0% Alcohol-Free 33cl</span><span class="menu-price">3.70€</span></div>
@@ -1995,7 +2005,7 @@
                 <div class="menu-row"><span>Kopparberg Red Fruits 4.5% 50cl</span><span class="menu-price">4.50€</span></div>
               </div>
             </div>
-            <div class="photo-frame menu-visual-inline">
+            <div class="photo-frame menu-visual-inline" data-menu-group="sweets">
               <img
                 src="/marca/DSC01990.jpg"
                 alt="Tueste artisan brownie"
@@ -2003,7 +2013,7 @@
                 decoding="async"
               />
             </div>
-            <div class="menu-panel">
+            <div class="menu-panel" data-menu-group="sweets">
               <h3 class="menu-title">Sweets</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Lemon & blueberry loaf</span><span class="menu-price">4.00€</span></div>
@@ -3183,6 +3193,8 @@
       document.addEventListener('DOMContentLoaded', function() {
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const menuTabButtons = document.querySelectorAll('.menu-tab-btn');
+        const menuTabPanes = document.querySelectorAll('.menu-tab-pane');
         const wifiWidget = document.querySelector('.wifi-widget');
         const wifiWidgetDismiss = document.querySelector('.wifi-widget-dismiss');
         const revealTargets = document.querySelectorAll('.card, .menu-panel, .playlist-card, .education-card, .origin-pill, .contact-link-card');
@@ -3206,6 +3218,49 @@
           wifiWidgetDismiss.addEventListener('click', function() {
             wifiWidget.classList.add('is-hidden');
           });
+        }
+        if (menuTabButtons.length && menuTabPanes.length) {
+          menuTabButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+              const target = button.getAttribute('data-menu-tab');
+              menuTabButtons.forEach(function(btn) {
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-selected', 'false');
+              });
+              menuTabPanes.forEach(function(pane) {
+                pane.classList.remove('is-active');
+                pane.style.display = 'none';
+              });
+              button.classList.add('is-active');
+              button.setAttribute('aria-selected', 'true');
+              const activePane = document.querySelector('[data-menu-pane=\"' + target + '\"]');
+              if (activePane) {
+                activePane.classList.add('is-active');
+                activePane.style.display = 'grid';
+              }
+            });
+          });
+        } else if (menuTabButtons.length) {
+          const menuCards = document.querySelectorAll('#carta .menu-grid > .menu-panel, #carta .menu-grid > .menu-visual-inline');
+          const showMenuGroup = function(target) {
+            menuCards.forEach(function(card) {
+              const group = card.getAttribute('data-menu-group');
+              card.style.display = group === target ? '' : 'none';
+            });
+          };
+          menuTabButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+              const target = button.getAttribute('data-menu-tab');
+              menuTabButtons.forEach(function(btn) {
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-selected', 'false');
+              });
+              button.classList.add('is-active');
+              button.setAttribute('aria-selected', 'true');
+              showMenuGroup(target);
+            });
+          });
+          showMenuGroup('cafes');
         }
         
         if (navToggle && navLinks) {
