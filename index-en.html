@@ -318,8 +318,8 @@
         background: rgba(247, 239, 231, 0.56);
       }
       .hero-visual {
-        aspect-ratio: 9 / 16;
-        max-height: 32.5rem;
+        aspect-ratio: 16 / 9;
+        max-height: 28rem;
         border-radius: 1rem;
         overflow: hidden;
         border: 0.0625rem solid rgba(235, 199, 163, 0.25);
@@ -330,7 +330,14 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
         display: block;
+      }
+      @media (max-width: 48rem) {
+        .hero-visual {
+          aspect-ratio: 16 / 10;
+          max-height: none;
+        }
       }
       .image-placeholder {
         position: relative;
@@ -1932,13 +1939,13 @@
           </div>
           <div class="hero-visual">
             <video
-              src="/marca/reel-tueste-cafes-con-s.mp4"
+              src="/marca/video-hero.mp4"
               autoplay
               muted
               loop
               playsinline
               preload="metadata"
-              aria-label="Tueste Cafés con S reel"
+              aria-label="Main Tueste Specialty Coffee video"
             ></video>
           </div>
         </div>
