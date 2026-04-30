@@ -582,6 +582,23 @@
         grid-column: 1 / -1;
         margin: 0.5rem 0;
       }
+      .menu-tab-pane[data-menu-pane="autor"] .menu-grid {
+        grid-template-columns: minmax(17.5rem, 0.95fr) minmax(20rem, 1.05fr);
+        align-items: start;
+      }
+      .menu-tab-pane[data-menu-pane="autor"] .menu-visual-inline {
+        grid-column: auto;
+        margin: 0;
+        min-height: 100%;
+      }
+      .menu-tab-pane[data-menu-pane="autor"] .menu-visual-inline img {
+        object-fit: contain;
+        object-position: center;
+        background: #1a120e;
+      }
+      .menu-tab-pane[data-menu-pane="autor"] .menu-panel {
+        min-height: 100%;
+      }
       .menu-panel {
         background: #231813;
         border: 0.0625rem solid rgba(235, 199, 163, 0.2);
@@ -1906,6 +1923,13 @@
         .menu-price-sizes {
           text-align: left;
         }
+        .menu-tab-pane[data-menu-pane="autor"] .menu-grid {
+          grid-template-columns: 1fr;
+        }
+        .menu-tab-pane[data-menu-pane="autor"] .menu-visual-inline {
+          grid-column: 1 / -1;
+          margin: 0.5rem 0;
+        }
       }
       @media (max-width: 600px) {
         .hero-visual {
@@ -2165,11 +2189,11 @@
                     <div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div>
                     <div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div>
                     <div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>La Fantástica Sr. Nuez Cola Sin Azúcar 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>La Fantástica Avelina Navellate Naranja 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>La Fantástica Cítrico Montoya Limón 33cl</span><span class="menu-price">3.50€</span></div>
-                    <div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Brite Piña Mango 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Brite Frambuesa y Menta 33cl</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Linda Zumo Bio Limonada Jengibre y Agave 20cl</span><span class="menu-price">3.50€</span></div>

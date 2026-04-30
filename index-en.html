@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -588,6 +588,12 @@
         color: #d7b99a;
         margin-bottom: 0.75rem;
       }
+      .menu-intro {
+        margin: 0 0 1rem;
+        color: #d9c1a7;
+        font-size: 0.9375rem;
+        line-height: 1.5;
+      }
       .menu-title {
         font-family: "STIX Two Text", serif;
         font-size: 1.375rem;
@@ -608,6 +614,33 @@
       .menu-row:last-child {
         border-bottom: none;
         padding-bottom: 0;
+      }
+      .menu-row-detailed {
+        align-items: flex-start;
+      }
+      .menu-item-copy {
+        display: grid;
+        gap: 0.25rem;
+      }
+      .menu-item-copy strong {
+        font-weight: 600;
+        color: #f7efe7;
+      }
+      .menu-item-copy small {
+        font-size: 0.8125rem;
+        color: #d9c1a7;
+        line-height: 1.4;
+      }
+      .menu-price-sizes {
+        text-align: right;
+        white-space: nowrap;
+      }
+      .menu-grid > .menu-visual-inline[data-menu-group="autor"] {
+        grid-column: auto;
+        margin: 0;
+      }
+      .menu-grid > .menu-panel[data-menu-group="autor"] {
+        min-height: 100%;
       }
       .menu-price {
         font-weight: 600;
@@ -1865,6 +1898,13 @@
           min-width: 2.75rem;
           min-height: 2.75rem;
         }
+        .menu-row-detailed {
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+        .menu-price-sizes {
+          text-align: left;
+        }
       }
       @media (max-width: 600px) {
         .hero-visual {
@@ -1960,6 +2000,7 @@
           <div class="menu-tabs" role="tablist" aria-label="Menu categories">
             <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Coffees</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor">Our Cans: Sealed & Shaken</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="drinks">Drinks</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="sweets">Sweets</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="addons">Add-ons</button>
@@ -1999,17 +2040,6 @@
                 <div class="menu-row"><span>Flat White</span><span class="menu-price">3.80€</span></div>
               </div>
             </div>
-            <div class="photo-frame video-frame menu-visual-inline" data-menu-group="cafes">
-              <video
-                src="/marca/video-filtro.mp4"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="none"
-                aria-label="Filter coffee preparation"
-              ></video>
-            </div>
             <div class="menu-panel" data-menu-group="cafes">
               <h3 class="menu-title">Iced coffees</h3>
               <div class="menu-list">
@@ -2022,6 +2052,57 @@
                 <div class="menu-row"><span>Iced Americano</span><span class="menu-price">4.00€</span></div>
                 <div class="menu-row"><span>Iced Americano XL</span><span class="menu-price">5.50€</span></div>
                 <div class="menu-row"><span>Espresso Tonic</span><span class="menu-price">4.50€</span></div>
+              </div>
+            </div>
+            <div class="photo-frame menu-visual-inline" data-menu-group="autor">
+              <img src="/marca/latas-signature.jpg" alt="Sealed and shaken signature cans at Tueste" loading="lazy" decoding="async" />
+            </div>
+            <div class="menu-panel" data-menu-group="autor">
+              <h3 class="menu-title">Our Cans: Sealed & Shaken</h3>
+              <p class="menu-intro">
+                Prepared fresh, sealed with our automatic can sealer, and machine-shaken/rotated for stable texture and consistent flavor to the last sip.
+              </p>
+              <div class="menu-list">
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Vanilla Latte</strong><small>Double espresso with creamy milk, vanilla, and a soft cinnamon touch.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Caramel Latte</strong><small>Double espresso, steamed milk, and caramel for a sweet, rounded profile.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Hazelnut Choco-Latte</strong><small>Espresso base with milk and our house hazelnut-cocoa cream, sweet and balanced.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Brownie Protein No Sugar Latte</strong><small>Cocoa-forward latte with brownie notes, designed for a protein-focused option.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 5,90€ · 500ml 6,90€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Citrus Coffee</strong><small>Espresso with orange and lemon, balanced with panela for a fresh finish.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Mango Oat Matcha</strong><small>Matcha with mango base and oat drink for a tropical, creamy profile.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 5,40€ · 500ml 6,40€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Raspberry Summer Matcha</strong><small>Matcha with raspberry base and dairy milk, fruity and creamy in cup.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 5,40€ · 500ml 6,40€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Raspberry Mint Lemonade</strong><small>Raspberry lemonade with fresh mint: refreshing, aromatic, and light.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Cold Brew Latte Can</strong><small>Cold-extracted coffee with milk/oat drink, smooth, sweet, and easy to drink.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 5,40€ · 500ml 6,40€</span>
+                </div>
+                <div class="menu-row menu-row-detailed">
+                  <span class="menu-item-copy"><strong>Cold Brew Can</strong><small>Clean and refreshing cold brew, ideal over ice.</small></span>
+                  <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                </div>
               </div>
             </div>
             <div class="menu-panel" data-menu-group="matcha">
@@ -2055,74 +2136,39 @@
               <img src="/marca/DSC02093.jpg" alt="Soft drinks selection at Tueste" loading="lazy" decoding="async" />
             </div>
             <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Teas with caffeine</h3>
+              <h3 class="menu-title">Hot · Teas & infusions</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>English Breakfast</span><span class="menu-price">2.50€</span></div>
                 <div class="menu-row"><span>Sencha BIO</span><span class="menu-price">2.50€</span></div>
                 <div class="menu-row"><span>Moroccan Mint</span><span class="menu-price">2.50€</span></div>
                 <div class="menu-row"><span>Pai Mu Tan BIO</span><span class="menu-price">2.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Caffeine-free infusions</h3>
-              <div class="menu-list">
                 <div class="menu-row"><span>Chamomile</span><span class="menu-price">2.50€</span></div>
                 <div class="menu-row"><span>Rooibos Cinnamon Vanilla</span><span class="menu-price">2.50€</span></div>
                 <div class="menu-row"><span>Ginger Lemon</span><span class="menu-price">2.50€</span></div>
               </div>
             </div>
             <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Water</h3>
+              <h3 class="menu-title">Cold · Bio soft drinks & more</h3>
               <div class="menu-list">
                 <div class="menu-row"><span>Sparkling water 300ml</span><span class="menu-price">2.00€</span></div>
                 <div class="menu-row"><span>Water 500ml</span><span class="menu-price">2.00€</span></div>
                 <div class="menu-row"><span>Mad Sparkling Water + Electrolytes</span><span class="menu-price">3.00€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Artisan tonics</h3>
-              <div class="menu-list">
                 <div class="menu-row"><span>Gemellii Pink Grapefruit Tonic 20cl</span><span class="menu-price">3.00€</span></div>
                 <div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div>
                 <div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Artisan soft drinks</h3>
-              <div class="menu-list">
+                <div class="menu-row"><span>La Fantástica Lúpulo Augusto Hopped Tonic 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>La Fantástica Sr. Nuez Sugar-Free Cola 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>La Fantástica Avelina Navellate Orange 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>La Fantástica Cítrico Montoya Lemon 33cl</span><span class="menu-price">3.50€</span></div>
-                <div class="menu-row"><span>La Fantástica Lúpulo Augusto Hopped Tonic 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Functional drinks</h3>
-              <div class="menu-list">
                 <div class="menu-row"><span>Brite Pineapple Mango 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Brite Raspberry & Mint 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Organic lemonades</h3>
-              <div class="menu-list">
                 <div class="menu-row"><span>Linda Organic Ginger & Agave Lemonade 20cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Linda Organic Hibiscus & Agave Lemonade 20cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Linda Organic Mandarin & Rosemary 20cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Iced teas</h3>
-              <div class="menu-list">
                 <div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div>
                 <div class="menu-row"><span>Lindo Black Tea Lemon 33cl</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Lindo Green Tea Lime & Ginger 33cl</span><span class="menu-price">3.50€</span></div>
-              </div>
-            </div>
-            <div class="menu-panel" data-menu-group="drinks">
-              <h3 class="menu-title">Kombuchas</h3>
-              <div class="menu-list">
                 <div class="menu-row"><span>Kom-Buchito Lemon 33cl</span><span class="menu-price">4.00€</span></div>
                 <div class="menu-row"><span>Kom-Buchito Orange 33cl</span><span class="menu-price">4.00€</span></div>
                 <div class="menu-row"><span>Kom-Buchito Red Fruits 33cl</span><span class="menu-price">4.00€</span></div>
@@ -2179,6 +2225,14 @@
               Freshly roasted weekly in Cordoba, ensuring maximum flavor and quality.
             </p>
           </div>
+          <div class="photo-frame" style="max-width: 42rem; margin: 0 auto 1.5rem;">
+            <img
+              src="/marca/cafe-granel-bolsas.jpg"
+              alt="Tueste coffee bags for retail beans"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem;">
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 84</span>
@@ -2197,8 +2251,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2218,8 +2272,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2240,8 +2294,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">11.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">36.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2262,8 +2316,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2284,8 +2338,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">12.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">40.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2306,8 +2360,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">61.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2328,8 +2382,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">62.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2349,8 +2403,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">62.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
@@ -2370,14 +2424,102 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18.00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">58.00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 83</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Brazil Serrano</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Natural · Cerrado Mineiro</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Catuai, Mundo Novo · Minas Gerais · 1,200 m · SCA 83</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate, caramel, and citrus with a balanced profile.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 45%;"></span>
+                <span class="flavor-segment caramel" style="width: 35%;"></span>
+                <span class="flavor-segment fruity" style="width: 20%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">13,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 83</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Costa Rica Guaria Morada</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">San Marcos de Tarrazu</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Caturra & Catuai · 1,400-1,900 m · SCA 83</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Fruit and citrus with chocolate, nuts, and red-fruit notes.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment fruity" style="width: 45%;"></span>
+                <span class="flavor-segment chocolate" style="width: 30%;"></span>
+                <span class="flavor-segment caramel" style="width: 25%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">17,50€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 84</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Yucazapa</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Double-fermented honey · Marcala</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Typica/Catuai/Parainema · Santa Maria de la Paz · 1,450-1,850 m · SCA 84</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Dark chocolate, vanilla, and black pepper.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 50%;"></span>
+                <span class="flavor-segment caramel" style="width: 30%;"></span>
+                <span class="flavor-segment fruity" style="width: 20%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 82</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Nicaragua Sacuanjoche</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Washed · Nicaragua</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Typica · Smallholder producers · 1,200-1,500 m · SCA 82</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate, caramel, and citrus with a complex, balanced profile.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 40%;"></span>
+                <span class="flavor-segment caramel" style="width: 35%;"></span>
+                <span class="flavor-segment fruity" style="width: 25%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">15,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">More quantity</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Ask us</div>
                 </div>
               </div>
             </div>
           </div>
           <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--madera); text-align: center;">
-            Available whole bean or freshly ground to order (espresso, filter, or French press)
+            Available whole bean or freshly ground to order (espresso, filter, or French press). Ask us for larger quantities or more varieties.
           </p>
         </div>
       </section>
