@@ -596,6 +596,12 @@
         color: #d7b99a;
         margin-bottom: 0.75rem;
       }
+      .menu-intro {
+        margin: 0 0 1rem;
+        color: #d9c1a7;
+        font-size: 0.9375rem;
+        line-height: 1.5;
+      }
       .menu-title {
         font-family: "STIX Two Text", serif;
         font-size: 1.375rem;
@@ -616,6 +622,26 @@
       .menu-row:last-child {
         border-bottom: none;
         padding-bottom: 0;
+      }
+      .menu-row-detailed {
+        align-items: flex-start;
+      }
+      .menu-item-copy {
+        display: grid;
+        gap: 0.25rem;
+      }
+      .menu-item-copy strong {
+        font-weight: 600;
+        color: #f7efe7;
+      }
+      .menu-item-copy small {
+        font-size: 0.8125rem;
+        color: #d9c1a7;
+        line-height: 1.4;
+      }
+      .menu-price-sizes {
+        text-align: right;
+        white-space: nowrap;
       }
       .menu-price {
         font-weight: 600;
@@ -1873,6 +1899,13 @@
           min-width: 2.75rem;
           min-height: 2.75rem;
         }
+        .menu-row-detailed {
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+        .menu-price-sizes {
+          text-align: left;
+        }
       }
       @media (max-width: 600px) {
         .hero-visual {
@@ -1967,11 +2000,12 @@
             Café de especialidad, bebidas y repostería pensadas para disfrutar.
           </p>
           <div class="menu-tabs" role="tablist" aria-label="Categorías de carta">
-            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Cafés</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="bebidas">Bebidas</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces">Dulces</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="suplementos">Suplementos</button>
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes" onclick="activateMenuTab('cafes')">Cafés</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha" onclick="activateMenuTab('matcha')">Matcha & Chai</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor" onclick="activateMenuTab('autor')">Bebidas Signature Selladas y Agitadas</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="bebidas" onclick="activateMenuTab('bebidas')">Refrescos bio & más</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces" onclick="activateMenuTab('dulces')">Dulces</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="suplementos" onclick="activateMenuTab('suplementos')">Suplementos</button>
           </div>
           <div class="menu-tab-panels">
             <div class="menu-tab-pane is-active" data-menu-pane="cafes">
@@ -1983,17 +2017,6 @@
                     loading="lazy"
                     decoding="async"
                   />
-                </div>
-                <div class="photo-frame video-frame menu-visual-inline">
-                  <video
-                    src="marca/video-filtro.mp4"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="none"
-                    aria-label="Preparación de café filtro"
-                  ></video>
                 </div>
                 <div class="menu-panel">
                   <h3 class="menu-title">Cafés espresso</h3>
@@ -2037,6 +2060,61 @@
                 </div>
               </div>
             </div>
+            <div class="menu-tab-pane" data-menu-pane="autor">
+              <div class="menu-grid">
+                <div class="photo-frame menu-visual-inline">
+                  <img src="marca/DSC02093.jpg" alt="Latas de autor de Tueste" loading="lazy" decoding="async" />
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Bebidas Signature Selladas y Agitadas</h3>
+                  <p class="menu-intro">
+                    Preparadas al momento, selladas en nuestra selladora automática y agitadas/rotadas en máquina para conseguir textura uniforme y sabor estable hasta el primer sorbo.
+                  </p>
+                  <div class="menu-list">
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Vanilla Latte</strong><small>Doble espresso con leche cremosa, vainilla y un toque suave de canela.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Caramel Latte</strong><small>Doble espresso, leche vaporizada y caramelo para un perfil dulce y redondo.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Hazelnut Choco-Latte</strong><small>Base de espresso con leche y crema casera de avellana y cacao, dulce y equilibrada.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Brownie Protein No Sugar Latte</strong><small>Latte con cacao y matiz brownie, pensado para quien busca un extra proteico.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 5,90€ · 500ml 6,90€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Citrus Coffee</strong><small>Espresso con naranja y limón, equilibrado con panela para un final fresco.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Mango Oat Matcha</strong><small>Matcha con base de mango y avena para un perfil tropical y cremoso.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 5,40€ · 500ml 6,40€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Raspberry Summer Matcha</strong><small>Matcha con base de frambuesa y leche de vaca, con perfil afrutado y cremoso.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 5,40€ · 500ml 6,40€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Raspberry Mint Lemonade</strong><small>Limonada de frambuesa con menta fresca: refrescante, aromática y ligera.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Cold Brew Latte Can</strong><small>Café de extracción en frío con leche/avena, suave, dulce y muy fácil de beber.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 5,40€ · 500ml 6,40€</span>
+                    </div>
+                    <div class="menu-row menu-row-detailed">
+                      <span class="menu-item-copy"><strong>Cold Brew Can</strong><small>Café de extracción en frío, limpio y refrescante, ideal para tomar con hielo.</small></span>
+                      <span class="menu-price menu-price-sizes">330ml 4,90€ · 500ml 5,90€</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="menu-tab-pane" data-menu-pane="matcha">
               <div class="menu-grid">
                 <div class="photo-frame menu-visual-inline">
@@ -2066,15 +2144,46 @@
                 <div class="photo-frame menu-visual-inline">
                   <img src="marca/DSC02093.jpg" alt="Selección de bebidas en Tueste" loading="lazy" decoding="async" />
                 </div>
-                <div class="menu-panel"><h3 class="menu-title">Tés con teína</h3><div class="menu-list"><div class="menu-row"><span>English Breakfast</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Sencha BIO</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Menta Marroquí</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Pai Mu Tan BIO</span><span class="menu-price">2.50€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Infusiones sin teína</h3><div class="menu-list"><div class="menu-row"><span>Manzanilla</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Rooibos Canela Vainilla</span><span class="menu-price">2.50€</span></div><div class="menu-row"><span>Jengibre Limón</span><span class="menu-price">2.50€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Agua</h3><div class="menu-list"><div class="menu-row"><span>Agua con gas 300ml</span><span class="menu-price">2.00€</span></div><div class="menu-row"><span>Agua 500ml</span><span class="menu-price">2.00€</span></div><div class="menu-row"><span>Mad Sparkling Water + Electrolitos</span><span class="menu-price">3.00€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Tónicas artesanales</h3><div class="menu-list"><div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div><div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div><div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Refrescos artesanales</h3><div class="menu-list"><div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Sr. Nuez Cola Sin Azúcar 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Avelina Navellate Naranja 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Cítrico Montoya Limón 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Bebidas funcionales</h3><div class="menu-list"><div class="menu-row"><span>Brite Piña Mango 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Brite Frambuesa y Menta 33cl</span><span class="menu-price">3.50€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Limonadas bio</h3><div class="menu-list"><div class="menu-row"><span>Linda Zumo Bio Limonada Jengibre y Agave 20cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Linda Zumo Bio Limonada Hibiscus y Agave 20cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Linda Zumo Bio Mandarina con Romero 20cl</span><span class="menu-price">3.50€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Tés helados</h3><div class="menu-list"><div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div><div class="menu-row"><span>Lindo Té Negro Limón 33cl</span><span class="menu-price">3.50€</span></div><div class="menu-row"><span>Lindo Té Verde Lima & Jengibre 33cl</span><span class="menu-price">3.50€</span></div></div></div>
-                <div class="menu-panel"><h3 class="menu-title">Kombuchas</h3><div class="menu-list"><div class="menu-row"><span>Kom-Buchito Limón 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Kom-Buchito Naranja 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Kom-Buchito Frutos Rojos 33cl</span><span class="menu-price">4.00€</span></div><div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div></div></div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Calientes · Tés e infusiones</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>English Breakfast</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Sencha BIO</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Menta Marroquí</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Pai Mu Tan BIO</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Manzanilla</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Rooibos Canela Vainilla</span><span class="menu-price">2.50€</span></div>
+                    <div class="menu-row"><span>Jengibre Limón</span><span class="menu-price">2.50€</span></div>
+                  </div>
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Frías · Refrescos bio & más</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Agua con gas 300ml</span><span class="menu-price">2.00€</span></div>
+                    <div class="menu-row"><span>Agua 500ml</span><span class="menu-price">2.00€</span></div>
+                    <div class="menu-row"><span>Mad Sparkling Water + Electrolitos</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>Gemellii Ginger Beer 20cl</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>La Fantástica Srta. Cafeína Cola Bio 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>La Fantástica Sr. Nuez Cola Sin Azúcar 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>La Fantástica Avelina Navellate Naranja 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>La Fantástica Cítrico Montoya Limón 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>La Fantástica Lúpulo Augusto Tónica con Lúpulo 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Brite Piña Mango 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Brite Frambuesa y Menta 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Linda Zumo Bio Limonada Jengibre y Agave 20cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Linda Zumo Bio Limonada Hibiscus y Agave 20cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Linda Zumo Bio Mandarina con Romero 20cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Yoko Iced Tea Matcha 33cl</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Lindo Té Negro Limón 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Lindo Té Verde Lima & Jengibre 33cl</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Kom-Buchito Limón 33cl</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Kom-Buchito Naranja 33cl</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Kom-Buchito Frutos Rojos 33cl</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="menu-tab-pane" data-menu-pane="dulces">
@@ -2159,8 +2268,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2180,8 +2289,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2202,8 +2311,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">11,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">36,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2224,8 +2333,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">46,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2246,8 +2355,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">12,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">40,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2268,8 +2377,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">61,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2290,8 +2399,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">62,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2311,8 +2420,8 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">62,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
@@ -2332,14 +2441,102 @@
                   <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">58,00€</div>
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 83</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Brasil Serrano</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Natural · Cerrado Mineiro</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Catuai, Mundo Novo · Minas Gerais · 1.200 m · SCA 83</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate, caramelo y cítrico con perfil equilibrado.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 45%;"></span>
+                <span class="flavor-segment caramel" style="width: 35%;"></span>
+                <span class="flavor-segment fruity" style="width: 20%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">13,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 83</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Costa Rica Guaria Morada</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">San Marcos de Tarrazú</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Caturra & Catuai · 1.400-1.900 m · SCA 83</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Frutas y cítricos con fondo de chocolate, nueces y fruta roja.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment fruity" style="width: 45%;"></span>
+                <span class="flavor-segment chocolate" style="width: 30%;"></span>
+                <span class="flavor-segment caramel" style="width: 25%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">17,50€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 84</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Yucazapa</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Honey con doble fermentación · Marcala</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Typica/Catuai/Parainema · Santa María de la Paz · 1.450-1.850 m · SCA 84</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate negro, vainilla y pimienta negra.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 50%;"></span>
+                <span class="flavor-segment caramel" style="width: 30%;"></span>
+                <span class="flavor-segment fruity" style="width: 20%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
+                </div>
+              </div>
+            </div>
+            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
+              <span class="coffee-sca-badge">SCA 82</span>
+              <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Nicaragua Sacuanjoche</h3>
+              <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Lavado · Nicaragua</p>
+              <p style="font-size: 0.8125rem; color: #c9a882; margin: 0 0 0.75rem 0;">Typica · Pequeños productores · 1.200-1.500 m · SCA 82</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Chocolate, caramelo y cítrico con perfil complejo y equilibrado.</p>
+              <div class="flavor-profile">
+                <span class="flavor-segment chocolate" style="width: 40%;"></span>
+                <span class="flavor-segment caramel" style="width: 35%;"></span>
+                <span class="flavor-segment fruity" style="width: 25%;"></span>
+              </div>
+              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">15,00€</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">Más cantidad</div>
+                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Consúltanos</div>
                 </div>
               </div>
             </div>
           </div>
           <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--madera); text-align: center;">
-            Disponible en grano o recién molido al momento (espresso, filtro o prensa francesa)
+            Disponible en grano o recién molido al momento (espresso, filtro o prensa francesa). Consulta con nosotros para más cantidades o variedades.
           </p>
         </div>
       </section>
@@ -3321,21 +3518,7 @@
           menuTabButtons.forEach(function(button) {
             button.addEventListener('click', function() {
               const target = button.getAttribute('data-menu-tab');
-              menuTabButtons.forEach(function(btn) {
-                btn.classList.remove('is-active');
-                btn.setAttribute('aria-selected', 'false');
-              });
-              menuTabPanes.forEach(function(pane) {
-                pane.classList.remove('is-active');
-                pane.style.display = 'none';
-              });
-              button.classList.add('is-active');
-              button.setAttribute('aria-selected', 'true');
-              const activePane = document.querySelector('[data-menu-pane=\"' + target + '\"]');
-              if (activePane) {
-                activePane.classList.add('is-active');
-                activePane.style.display = 'grid';
-              }
+              activateMenuTab(target);
             });
           });
         }
@@ -3412,6 +3595,30 @@
           button.classList.remove('copied');
           button.innerHTML = originalText;
         }, 2000);
+      }
+
+      function activateMenuTab(target) {
+        const menuTabButtons = document.querySelectorAll('.menu-tab-btn');
+        const menuTabPanes = document.querySelectorAll('.menu-tab-pane');
+        if (!menuTabButtons.length || !menuTabPanes.length) return;
+        menuTabButtons.forEach(function(btn) {
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        menuTabPanes.forEach(function(pane) {
+          pane.classList.remove('is-active');
+          pane.style.display = 'none';
+        });
+        const activeButton = document.querySelector('.menu-tab-btn[data-menu-tab="' + target + '"]');
+        if (activeButton) {
+          activeButton.classList.add('is-active');
+          activeButton.setAttribute('aria-selected', 'true');
+        }
+        const activePane = document.querySelector('.menu-tab-pane[data-menu-pane="' + target + '"]');
+        if (activePane) {
+          activePane.classList.add('is-active');
+          activePane.style.display = 'grid';
+        }
       }
     </script>
     
