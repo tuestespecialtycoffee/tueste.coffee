@@ -34,7 +34,7 @@ function Render-Cards($coffees, $lang) {
     [void]$sb.AppendLine('                <div style="flex: 1;">')
     if ($c.price1kg) {
       [void]$sb.AppendLine('                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>')
-      [void]$sb.AppendLine("                  <div style=""font-size: 1.125rem; font-weight: 600; color: #f7efe7;"">$($c.price1kg)&euro;</div>")
+      [void]$sb.AppendLine("                  <div style=""font-size: 1.125rem; font-weight: 600; color: #f7efe7;"">$askLabel</div>")
     } else {
       [void]$sb.AppendLine("                  <div style=""font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;"">$moreLabel</div>")
       [void]$sb.AppendLine("                  <div style=""font-size: 1.125rem; font-weight: 600; color: #f7efe7;"">$askLabel</div>")
