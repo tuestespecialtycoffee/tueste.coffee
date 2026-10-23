@@ -701,6 +701,165 @@
       .section-menu .muted {
         color: #d7b99a;
       }
+      /* TEMPORAL HALLOWEEN — inicio */
+      .seasonal-feature {
+        margin-top: 1.5rem;
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.35);
+        background: #231813;
+        color: #f7efe7;
+      }
+      .seasonal-kicker {
+        margin: 0 0 0.35rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #e0b98f;
+      }
+      .seasonal-feature h3 {
+        margin: 0 0 0.35rem;
+        font-family: "STIX Two Text", serif;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        color: #f7efe7;
+      }
+      .seasonal-lead {
+        margin: 0 0 1rem;
+        max-width: 42rem;
+        color: #e0b98f;
+        font-size: 0.9375rem;
+      }
+      .seasonal-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      @media (min-width: 37.5rem) {
+        .seasonal-cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .seasonal-card {
+        display: grid;
+        gap: 0.75rem;
+        margin: 0;
+        padding: 0.75rem;
+        border-radius: 0.625rem;
+        background: #1b120e;
+        border: 0.0625rem solid rgba(235, 199, 163, 0.22);
+      }
+      .seasonal-photo {
+        width: 100%;
+        min-height: 10rem;
+        aspect-ratio: 4 / 3;
+        text-transform: none;
+        letter-spacing: 0.02em;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+      .seasonal-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 2;
+      }
+      .seasonal-photo:has(img[src]:not([src=""])) .seasonal-photo-pending,
+      .seasonal-photo:has(img[src]:not([src=""]))::after {
+        display: none;
+      }
+      .seasonal-card-body {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.35rem 0.75rem;
+      }
+      .seasonal-card h4 {
+        margin: 0;
+        flex: 1 1 8rem;
+        font-family: "STIX Two Text", serif;
+        font-size: 1.0625rem;
+        font-weight: 500;
+        line-height: 1.3;
+        color: #f7efe7;
+      }
+      .seasonal-price {
+        margin: 0;
+        font-weight: 600;
+        color: #ebc7a3;
+        white-space: nowrap;
+      }
+      .seasonal-cta {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.75rem;
+        min-width: 2.75rem;
+        padding: 0.65rem 1.25rem;
+        border: 0.0625rem solid #ebc7a3;
+        border-radius: 0.5rem;
+        background: #ebc7a3;
+        color: #4c3524;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        line-height: 1.2;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+      .seasonal-cta:hover {
+        background: #f3d7b8;
+        border-color: #f3d7b8;
+      }
+      .seasonal-cta:active {
+        background: #d7b08a;
+        border-color: #d7b08a;
+      }
+      .seasonal-cta:focus-visible {
+        outline: 0.125rem solid #f7efe7;
+        outline-offset: 0.1875rem;
+      }
+      .seasonal-cta:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: #cbb39a;
+        border-color: #cbb39a;
+        color: #4c3524;
+      }
+      .seasonal-tag,
+      .seasonal-tab-mark {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 0.45rem;
+        padding: 0.05rem 0.4rem;
+        border-radius: 999rem;
+        background: #ebc7a3;
+        color: #4c3524;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1.4;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+      .menu-row.is-seasonal {
+        margin-left: -0.35rem;
+        margin-right: -0.35rem;
+        padding-left: 0.35rem;
+        padding-right: 0.35rem;
+        border-radius: 0.35rem;
+        background: rgba(235, 199, 163, 0.08);
+      }
+      .menu-row.is-seasonal > span:first-child {
+        flex: 1;
+        min-width: 0;
+      }
+      /* TEMPORAL HALLOWEEN — fin */
       .valores-card {
         position: relative;
         border-left: 0.1875rem solid rgba(182, 129, 80, 0.6);
@@ -2025,12 +2184,41 @@
           <p class="muted">
             Café de especialidad, bebidas y repostería pensadas para disfrutar.
           </p>
+          <!-- TEMPORAL HALLOWEEN — inicio -->
+          <section class="seasonal-feature" aria-labelledby="halloween-destacado-titulo">
+            <p class="seasonal-kicker">Temporada</p>
+            <h3 id="halloween-destacado-titulo">Halloween en la carta</h3>
+            <p class="seasonal-lead">Cookie y bizcocho de calabaza, mientras dure la temporada.</p>
+            <div class="seasonal-cards">
+              <article class="seasonal-card">
+                <div class="image-placeholder seasonal-photo" data-seasonal-photo="cookie-halloween">
+                  <span class="seasonal-photo-pending">Foto en camino</span>
+                </div>
+                <div class="seasonal-card-body">
+                  <h4>Cookie Halloween</h4>
+                  <p class="seasonal-price">3,50 €</p>
+                </div>
+              </article>
+              <article class="seasonal-card">
+                <div class="image-placeholder seasonal-photo" data-seasonal-photo="bizcocho-calabaza">
+                  <span class="seasonal-photo-pending">Foto en camino</span>
+                </div>
+                <div class="seasonal-card-body">
+                  <h4>Bizcocho de calabaza y café</h4>
+                  <p class="seasonal-price">4,50 €</p>
+                </div>
+              </article>
+            </div>
+            <button class="seasonal-cta" type="button" onclick="activateMenuTab('dulces')">Ver en Dulces</button>
+          </section>
+          <!-- TEMPORAL HALLOWEEN — fin -->
           <div class="menu-tabs" role="tablist" aria-label="Categorías de carta">
             <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes" onclick="activateMenuTab('cafes')">Cafés</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha" onclick="activateMenuTab('matcha')">Matcha & Chai</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor" onclick="activateMenuTab('autor')">Nuestras Latas: Selladas y Agitadas</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="bebidas" onclick="activateMenuTab('bebidas')">Refrescos bio & más</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces" onclick="activateMenuTab('dulces')">Cookies</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="salados" onclick="activateMenuTab('salados')">Salados</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces" onclick="activateMenuTab('dulces')">Dulces<!-- TEMPORAL HALLOWEEN --><span class="seasonal-tab-mark">Halloween</span><!-- /TEMPORAL HALLOWEEN --></button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="suplementos" onclick="activateMenuTab('suplementos')">Extras</button>
           </div>
           <div class="menu-tab-panels">
@@ -2065,7 +2253,7 @@
                     <div class="menu-row"><span>Cappuccino</span><span class="menu-price">3.40€</span></div>
                     <div class="menu-row"><span>Cappuccino XL</span><span class="menu-price">4.40€</span></div>
                     <div class="menu-row"><span>Latte</span><span class="menu-price">3.00€</span></div>
-                    <div class="menu-row"><span>Latte XL</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Latte XL</span><span class="menu-price">4.00€</span></div>
                     <div class="menu-row"><span>Latte XXL</span><span class="menu-price">5.50€</span></div>
                     <div class="menu-row"><span>Flat White</span><span class="menu-price">3.80€</span></div>
                   </div>
@@ -2186,7 +2374,7 @@
                   <h3 class="menu-title">Frías · Refrescos bio & más</h3>
                   <div class="menu-list">
                     <div class="menu-row"><span>Agua con gas 300ml</span><span class="menu-price">2.00€</span></div>
-                    <div class="menu-row"><span>Agua 500ml</span><span class="menu-price">2.00€</span></div>
+                    <div class="menu-row"><span>Agua Solán de Cabras sin gas 0,5L</span><span class="menu-price">2.00€</span></div>
                     <div class="menu-row"><span>Mad Sparkling Water + Electrolitos</span><span class="menu-price">3.00€</span></div>
                     <div class="menu-row"><span>Gemellii Pomelo Rosa Tonic 20cl</span><span class="menu-price">3.00€</span></div>
                     <div class="menu-row"><span>Gemellii Bergamot Tonic 20cl</span><span class="menu-price">3.00€</span></div>
@@ -2208,6 +2396,35 @@
                     <div class="menu-row"><span>Kom-Buchito Naranja 33cl</span><span class="menu-price">4.00€</span></div>
                     <div class="menu-row"><span>Kom-Buchito Frutos Rojos 33cl</span><span class="menu-price">4.00€</span></div>
                     <div class="menu-row"><span>Kom-Buchito Ashwagandha 33cl</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Agua de Sandía Coast</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>BioKombucha frutas del bosque</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>BioKombucha jengibre</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>BioKombucha limón</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Kult agua de kéfir mate</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>La Fantástica Antonica agua tónica</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>La Fantástica Antonica tónica</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Mad agua de coco joven Pure</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Mad agua magnesio y limón</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Mad agua vitaminada Irony fresa y ruibarbo</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Mad agua zinc y melocotón</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Mad Ice Tea Sparks té verde con manzana</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Tónica Fever-Tree</span><span class="menu-price">3.00€</span></div>
+                    <div class="menu-row"><span>Trip Mindful Blood Orange Rosemary</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Trip Mindful Cucumber Mint</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Trip Mindful Elderflower Mint</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Zumo</span><span class="menu-price">2.00€</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="menu-tab-pane" data-menu-pane="salados">
+              <div class="menu-grid">
+                <div class="menu-panel">
+                  <h3 class="menu-title">Salados</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Bagel de pollo</span><span class="menu-price">3.90€</span></div>
+                    <div class="menu-row"><span>Brioche de salmón</span><span class="menu-price">4.90€</span></div>
+                    <div class="menu-row"><span>Brioche pastrami y trufa</span><span class="menu-price">4.20€</span></div>
                   </div>
                 </div>
               </div>
@@ -2231,6 +2448,27 @@
                     <div class="menu-row"><span>Cookie Red Velvet con Chocolate Blanco</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Cookie de pistacho y chocolate blanco</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Cookie de limón</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie de chocolate y espresso</span><span class="menu-price">3.50€</span></div>
+                    <!-- TEMPORAL HALLOWEEN -->
+                    <div class="menu-row is-seasonal"><span>Cookie Halloween<span class="seasonal-tag">Halloween</span></span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie Lotus</span><span class="menu-price">3.50€</span></div>
+                    <div class="menu-row"><span>Cookie de naranja</span><span class="menu-price">3.50€</span></div>
+                  </div>
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Bizcochos</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Bizcocho de limón y yogur</span><span class="menu-price">4.00€</span></div>
+                    <div class="menu-row"><span>Bizcocho de plátano y chocolate</span><span class="menu-price">4.00€</span></div>
+                    <!-- TEMPORAL HALLOWEEN -->
+                    <div class="menu-row is-seasonal"><span>Bizcocho de calabaza y café<span class="seasonal-tag">Halloween</span></span><span class="menu-price">4.50€</span></div>
+                  </div>
+                </div>
+                <div class="menu-panel">
+                  <h3 class="menu-title">Whoopies</h3>
+                  <div class="menu-list">
+                    <div class="menu-row"><span>Whoopie de café y dulce de leche</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Whoopie de vainilla y Nutella</span><span class="menu-price">4.50€</span></div>
                   </div>
                 </div>
               </div>
@@ -2242,7 +2480,8 @@
                   <div class="menu-list">
                     <div class="menu-row"><span>Scoop de proteína</span><span class="menu-price">2.00€</span></div>
                     <div class="menu-row"><span>Siropes</span><span class="menu-price">0.50€</span></div>
-                    <div class="menu-row"><span>Leches vegetales (solo en latas)</span><span class="menu-price">0.50€</span></div>
+                    <div class="menu-row"><span>Leche vegetal</span><span class="menu-price">0.30€</span></div>
+                    <div class="menu-row"><span>Extra de hielo</span><span class="menu-price">0.70€</span></div>
                   </div>
                 </div>
               </div>
@@ -2259,18 +2498,17 @@
         <div class="container">
           <h2>Café a granel</h2>
           <p class="muted">
-            Llévate nuestro café de especialidad a casa. Disponible en grano o recién molido.
+            Histórico de cafés de especialidad. Consúltanos qué hay disponible y el precio.
           </p>
           <div style="max-width: 45rem; margin: 1.5rem auto 2rem;">
             <p style="margin-bottom: 1rem;">
-              Somos una cafetería pequeña, pero con más de diez variedades de distintos
-              orígenes para llevarte a casa. Cafés de especialidad tostados semanalmente
-              en Córdoba, con trazabilidad y perfil de taza definido.
+              Aquí está el histórico de orígenes que han pasado por Tueste. El tueste es semanal
+              en Córdoba, con trazabilidad y perfil de taza definido. No publicamos precios:
+              consúltanos qué hay en tienda y a cuánto está.
             </p>
             <p style="margin-bottom: 0;">
-              Elige grano entero o recién molido según tu método—espresso, filtro o prensa
-              francesa. Formatos de 250&nbsp;g en tienda; para kilos y otras cantidades,
-              consúltanos.
+              Cuando hay stock, puedes llevarlo en grano entero o recién molido para espresso,
+              filtro o prensa francesa.
             </p>
           </div>
           <div class="photo-frame" style="max-width: 42rem; margin: 0 auto 1.5rem;">
@@ -2293,37 +2531,19 @@
                 <span class="flavor-segment fruity" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">12,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 83</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Brasil Albus</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Natural · Brasil</p>
-              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">En grano o recién molido</p>
               <div class="flavor-profile">
                 <span class="flavor-segment chocolate" style="width: 45%;"></span>
                 <span class="flavor-segment caramel" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">13,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 83</span>
@@ -2336,16 +2556,7 @@
                 <span class="flavor-segment caramel" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">13,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 84</span>
@@ -2358,16 +2569,7 @@
                 <span class="flavor-segment caramel" style="width: 25%;"></span>
                 <span class="flavor-segment floral" style="width: 15%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">13,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Rosa Uganda Brasil</h3>
@@ -2378,16 +2580,7 @@
                 <span class="flavor-segment fruity" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">13,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Blend Brasil e India</h3>
@@ -2398,16 +2591,7 @@
                 <span class="flavor-segment caramel" style="width: 30%;"></span>
                 <span class="flavor-segment fruity" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 84</span>
@@ -2420,16 +2604,7 @@
                 <span class="flavor-segment fruity" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 84</span>
@@ -2441,16 +2616,7 @@
                 <span class="flavor-segment caramel" style="width: 30%;"></span>
                 <span class="flavor-segment fruity" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 80</span>
@@ -2463,16 +2629,7 @@
                 <span class="flavor-segment floral" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 83</span>
@@ -2484,16 +2641,7 @@
                 <span class="flavor-segment caramel" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">14,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 82</span>
@@ -2506,16 +2654,7 @@
                 <span class="flavor-segment caramel" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">15,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Besos Uganda Colombia</h3>
@@ -2526,16 +2665,7 @@
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">16,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Caricias Nicaragua Vietnam</h3>
@@ -2546,37 +2676,19 @@
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">16,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 85</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Cataquilles</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Natural · Santa Bárbara</p>
-              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">En grano o recién molido</p>
               <div class="flavor-profile">
                 <span class="flavor-segment fruity" style="width: 40%;"></span>
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment floral" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">16,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Jaleo Brasil Colombia Etiopía</h3>
@@ -2587,16 +2699,7 @@
                 <span class="flavor-segment floral" style="width: 30%;"></span>
                 <span class="flavor-segment caramel" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">16,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 83</span>
@@ -2609,16 +2712,7 @@
                 <span class="flavor-segment chocolate" style="width: 30%;"></span>
                 <span class="flavor-segment caramel" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">17,50&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 85</span>
@@ -2631,16 +2725,7 @@
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 86</span>
@@ -2652,16 +2737,7 @@
                 <span class="flavor-segment fruity" style="width: 35%;"></span>
                 <span class="flavor-segment caramel" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 87</span>
@@ -2674,16 +2750,7 @@
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 86</span>
@@ -2695,58 +2762,31 @@
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment floral" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 87</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Montecillos</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Natural · Marcala</p>
-              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">En grano o recién molido</p>
               <div class="flavor-profile">
                 <span class="flavor-segment caramel" style="width: 40%;"></span>
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 85</span>
               <h3 style="font-family: 'STIX Two Text', serif; font-size: 1.25rem; color: #f7efe7; margin: 0 0 0.5rem 0;">Honduras Opatoro</h3>
               <p style="font-size: 0.875rem; color: #d7b99a; margin: 0 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.1em;">Café de especialidad</p>
-              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">Disponible en grano o recién molido</p>
+              <p style="font-size: 0.9375rem; color: #e0b98f; margin: 0 0 1rem 0;">En grano o recién molido</p>
               <div class="flavor-profile">
                 <span class="flavor-segment caramel" style="width: 40%;"></span>
                 <span class="flavor-segment chocolate" style="width: 35%;"></span>
                 <span class="flavor-segment fruity" style="width: 25%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
             <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">
               <span class="coffee-sca-badge">SCA 84</span>
@@ -2759,21 +2799,11 @@
                 <span class="flavor-segment caramel" style="width: 30%;"></span>
                 <span class="flavor-segment fruity" style="width: 20%;"></span>
               </div>
-              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">18,00&euro;</div>
-                </div>
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">M&aacute;s cantidad</div>
-                  <div style="font-size: 1.125rem; font-weight: 600; color: #f7efe7;">Cons&uacute;ltanos</div>
-                </div>
-              </div>
+              <p style="margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;">Consúltanos qué hay disponible y el precio</p>
             </div>
           </div>
           <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--madera); text-align: center;">
-            Más de diez orígenes en rotación. Disponible en grano o recién molido (espresso, filtro o prensa francesa).
-            Para kilos y otras cantidades, consúltanos en tienda.
+            Sin precio en la web. Consúltanos qué hay disponible y el precio.
           </p>
         </div>
       </section>

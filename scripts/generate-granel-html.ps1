@@ -7,8 +7,6 @@ function Render-Cards($coffees, $lang) {
     $process = if ($lang -eq 'en') { $c.processEn } else { $c.processEs }
     $notes = if ($lang -eq 'en') { $c.notesEn } else { $c.notesEs }
     $meta = if ($lang -eq 'en') { $c.metaEn } else { $c.metaEs }
-    $moreLabel = if ($lang -eq 'en') { 'More quantity' } else { 'M&aacute;s cantidad' }
-    $askLabel = if ($lang -eq 'en') { 'Ask us' } else { 'Cons&uacute;ltanos' }
 
     [void]$sb.AppendLine('            <div class="card coffee-card" style="background: #231813; border-color: rgba(235, 199, 163, 0.2);">')
     if ($c.sca) {
@@ -26,21 +24,8 @@ function Render-Cards($coffees, $lang) {
       [void]$sb.AppendLine("                <span class=""flavor-segment $($parts[0])"" style=""width: $($parts[1])%;""></span>")
     }
     [void]$sb.AppendLine('              </div>')
-    [void]$sb.AppendLine('              <div style="display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15);">')
-    [void]$sb.AppendLine('                <div style="flex: 1;">')
-    [void]$sb.AppendLine('                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">250g</div>')
-    [void]$sb.AppendLine("                  <div style=""font-size: 1.125rem; font-weight: 600; color: #f7efe7;"">$($c.price250)&euro;</div>")
-    [void]$sb.AppendLine('                </div>')
-    [void]$sb.AppendLine('                <div style="flex: 1;">')
-    if ($c.price1kg) {
-      [void]$sb.AppendLine('                  <div style="font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;">1 kg</div>')
-      [void]$sb.AppendLine("                  <div style=""font-size: 1.125rem; font-weight: 600; color: #f7efe7;"">$askLabel</div>")
-    } else {
-      [void]$sb.AppendLine("                  <div style=""font-size: 0.875rem; color: #d7b99a; margin-bottom: 0.25rem;"">$moreLabel</div>")
-      [void]$sb.AppendLine("                  <div style=""font-size: 1.125rem; font-weight: 600; color: #f7efe7;"">$askLabel</div>")
-    }
-    [void]$sb.AppendLine('                </div>')
-    [void]$sb.AppendLine('              </div>')
+    $consult = if ($lang -eq 'en') { "Ask us what's available and the price" } else { 'Consúltanos qué hay disponible y el precio' }
+    [void]$sb.AppendLine("              <p style=""margin: 1rem 0 0; padding-top: 1rem; border-top: 0.0625rem solid rgba(235, 199, 163, 0.15); font-size: 0.9375rem; font-weight: 600; color: #f7efe7;"">$consult</p>")
     [void]$sb.AppendLine('            </div>')
   }
   return $sb.ToString().TrimEnd()
