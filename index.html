@@ -701,7 +701,7 @@
       .section-menu .muted {
         color: #d7b99a;
       }
-      /* TEMPORAL HALLOWEEN — inicio */
+      /* TEMPORADA — inicio */
       .seasonal-feature {
         margin-top: 1.5rem;
         padding: 1.25rem;
@@ -859,7 +859,64 @@
         flex: 1;
         min-width: 0;
       }
-      /* TEMPORAL HALLOWEEN — fin */
+      .seasonal-spotlight {
+        display: grid;
+        gap: 1.25rem;
+        align-items: start;
+      }
+      @media (min-width: 48rem) {
+        .seasonal-spotlight {
+          grid-template-columns: minmax(14rem, 0.82fr) minmax(0, 1.18fr);
+        }
+      }
+      .seasonal-poster {
+        margin: 0;
+      }
+      .seasonal-poster a {
+        display: block;
+        border-radius: 0.5rem;
+        color: #ebc7a3;
+      }
+      .seasonal-poster a:focus-visible {
+        outline: 0.125rem solid #f7efe7;
+        outline-offset: 0.1875rem;
+      }
+      .seasonal-poster img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+      .seasonal-poster figcaption {
+        margin-top: 0.5rem;
+      }
+      .seasonal-poster-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-underline-offset: 0.15em;
+      }
+      .seasonal-poster-link:hover {
+        color: #f3d7b8;
+      }
+      .seasonal-card-compact {
+        gap: 0.35rem;
+      }
+      .seasonal-note {
+        margin: 0;
+        color: #d7b99a;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+      }
+      .seasonal-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .seasonal-actions .seasonal-cta {
+        margin-top: 0;
+      }
+      /* TEMPORADA — fin */
       .valores-card {
         position: relative;
         border-left: 0.1875rem solid rgba(182, 129, 80, 0.6);
@@ -2184,41 +2241,71 @@
           <p class="muted">
             Café de especialidad, bebidas y repostería pensadas para disfrutar.
           </p>
-          <!-- TEMPORAL HALLOWEEN — inicio -->
-          <section class="seasonal-feature" aria-labelledby="halloween-destacado-titulo">
+          <!-- TEMPORADA — bebidas -->
+          <section class="seasonal-feature" aria-labelledby="temporada-destacado-titulo">
             <p class="seasonal-kicker">Temporada</p>
-            <h3 id="halloween-destacado-titulo">Halloween en la carta</h3>
-            <p class="seasonal-lead">Cookie y bizcocho de calabaza, mientras dure la temporada.</p>
-            <div class="seasonal-cards">
-              <article class="seasonal-card">
-                <div class="image-placeholder seasonal-photo" data-seasonal-photo="cookie-halloween">
-                  <span class="seasonal-photo-pending">Foto en camino</span>
+            <h3 id="temporada-destacado-titulo">Bebidas de temporada</h3>
+            <p class="seasonal-lead">Pumpkin spice latte y pumpkin spice chai, mientras dure la temporada.</p>
+            <div class="seasonal-spotlight">
+              <figure class="seasonal-poster">
+                <a href="marca/cartel-bebidas-temporada.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir el cartel de bebidas de temporada en PDF">
+                  <img
+                    src="marca/cartel-bebidas-temporada.webp"
+                    alt="Cartel de bebidas de temporada de Tueste: Pumpkin Latte Coffee, con doble espresso, leche de calabaza y pumpkin spice, y Pumpkin Chai Latte, con té chai, leche de calabaza y pumpkin spice."
+                    width="1200"
+                    height="1658"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <a class="seasonal-poster-link" href="marca/cartel-bebidas-temporada.pdf" target="_blank" rel="noopener noreferrer">Abrir cartel (PDF)</a>
+                </figcaption>
+              </figure>
+              <div class="seasonal-offer">
+                <div class="seasonal-cards">
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Latte</h4>
+                      <p class="seasonal-price">3,90 €</p>
+                    </div>
+                    <p class="seasonal-note">Doble espresso, leche de calabaza y pumpkin spice.</p>
+                  </article>
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Latte XL</h4>
+                      <p class="seasonal-price">4,90 €</p>
+                    </div>
+                  </article>
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Chai</h4>
+                      <p class="seasonal-price">3,90 €</p>
+                    </div>
+                    <p class="seasonal-note">Té chai, leche de calabaza y pumpkin spice.</p>
+                  </article>
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Chai XL</h4>
+                      <p class="seasonal-price">4,90 €</p>
+                    </div>
+                  </article>
                 </div>
-                <div class="seasonal-card-body">
-                  <h4>Cookie Halloween</h4>
-                  <p class="seasonal-price">3,50 €</p>
+                <div class="seasonal-actions">
+                  <button class="seasonal-cta" type="button" onclick="activateMenuTab('cafes')">Ver en Cafés</button>
+                  <button class="seasonal-cta" type="button" onclick="activateMenuTab('matcha')">Ver en Matcha y Chai</button>
                 </div>
-              </article>
-              <article class="seasonal-card">
-                <div class="image-placeholder seasonal-photo" data-seasonal-photo="bizcocho-calabaza">
-                  <span class="seasonal-photo-pending">Foto en camino</span>
-                </div>
-                <div class="seasonal-card-body">
-                  <h4>Bizcocho de calabaza y café</h4>
-                  <p class="seasonal-price">4,50 €</p>
-                </div>
-              </article>
+              </div>
             </div>
-            <button class="seasonal-cta" type="button" onclick="activateMenuTab('dulces')">Ver en Dulces</button>
           </section>
-          <!-- TEMPORAL HALLOWEEN — fin -->
+          <!-- /TEMPORADA — bebidas -->
           <div class="menu-tabs" role="tablist" aria-label="Categorías de carta">
-            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes" onclick="activateMenuTab('cafes')">Cafés</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha" onclick="activateMenuTab('matcha')">Matcha & Chai</button>
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes" onclick="activateMenuTab('cafes')">Cafés<span class="seasonal-tab-mark">Temporada</span></button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha" onclick="activateMenuTab('matcha')">Matcha & Chai<span class="seasonal-tab-mark">Temporada</span></button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor" onclick="activateMenuTab('autor')">Nuestras Latas: Selladas y Agitadas</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="bebidas" onclick="activateMenuTab('bebidas')">Refrescos bio & más</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="salados" onclick="activateMenuTab('salados')">Salados</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces" onclick="activateMenuTab('dulces')">Dulces<!-- TEMPORAL HALLOWEEN --><span class="seasonal-tab-mark">Halloween</span><!-- /TEMPORAL HALLOWEEN --></button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="dulces" onclick="activateMenuTab('dulces')">Dulces</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="suplementos" onclick="activateMenuTab('suplementos')">Extras</button>
           </div>
           <div class="menu-tab-panels">
@@ -2250,6 +2337,8 @@
                 <div class="menu-panel">
                   <h3 class="menu-title">Cafés con leche</h3>
                   <div class="menu-list">
+                    <div class="menu-row is-seasonal"><span>Pumpkin Spice Latte<span class="seasonal-tag">Temporada</span></span><span class="menu-price">3.90€</span></div>
+                    <div class="menu-row is-seasonal"><span>Pumpkin Spice Latte XL<span class="seasonal-tag">Temporada</span></span><span class="menu-price">4.90€</span></div>
                     <div class="menu-row"><span>Cappuccino</span><span class="menu-price">3.40€</span></div>
                     <div class="menu-row"><span>Cappuccino XL</span><span class="menu-price">4.40€</span></div>
                     <div class="menu-row"><span>Latte</span><span class="menu-price">3.00€</span></div>
@@ -2344,6 +2433,8 @@
                     <div class="menu-row"><span>Iced Matcha Latte XL</span><span class="menu-price">6.00€</span></div>
                     <div class="menu-row"><span>Iced Chai Latte</span><span class="menu-price">4.80€</span></div>
                     <div class="menu-row"><span>Iced Chai Latte XL</span><span class="menu-price">5.50€</span></div>
+                    <div class="menu-row is-seasonal"><span>Pumpkin Spice Chai<span class="seasonal-tag">Temporada</span></span><span class="menu-price">3.90€</span></div>
+                    <div class="menu-row is-seasonal"><span>Pumpkin Spice Chai XL<span class="seasonal-tag">Temporada</span></span><span class="menu-price">4.90€</span></div>
                     <div class="menu-row"><span>Chai Latte</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Chai Latte XL</span><span class="menu-price">4.50€</span></div>
                     <div class="menu-row"><span>Chai Latte XXL</span><span class="menu-price">5.50€</span></div>
@@ -2449,8 +2540,6 @@
                     <div class="menu-row"><span>Cookie de pistacho y chocolate blanco</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Cookie de limón</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Cookie de chocolate y espresso</span><span class="menu-price">3.50€</span></div>
-                    <!-- TEMPORAL HALLOWEEN -->
-                    <div class="menu-row is-seasonal"><span>Cookie Halloween<span class="seasonal-tag">Halloween</span></span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Cookie Lotus</span><span class="menu-price">3.50€</span></div>
                     <div class="menu-row"><span>Cookie de naranja</span><span class="menu-price">3.50€</span></div>
                   </div>
@@ -2460,8 +2549,7 @@
                   <div class="menu-list">
                     <div class="menu-row"><span>Bizcocho de limón y yogur</span><span class="menu-price">4.00€</span></div>
                     <div class="menu-row"><span>Bizcocho de plátano y chocolate</span><span class="menu-price">4.00€</span></div>
-                    <!-- TEMPORAL HALLOWEEN -->
-                    <div class="menu-row is-seasonal"><span>Bizcocho de calabaza y café<span class="seasonal-tag">Halloween</span></span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row"><span>Bizcocho de calabaza y café</span><span class="menu-price">4.50€</span></div>
                   </div>
                 </div>
                 <div class="menu-panel">

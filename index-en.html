@@ -689,7 +689,7 @@
       .section-menu .muted {
         color: #d7b99a;
       }
-      /* TEMPORAL HALLOWEEN — inicio */
+      /* TEMPORADA — inicio */
       .seasonal-feature {
         margin-top: 1.5rem;
         padding: 1.25rem;
@@ -847,7 +847,64 @@
         flex: 1;
         min-width: 0;
       }
-      /* TEMPORAL HALLOWEEN — fin */
+      .seasonal-spotlight {
+        display: grid;
+        gap: 1.25rem;
+        align-items: start;
+      }
+      @media (min-width: 48rem) {
+        .seasonal-spotlight {
+          grid-template-columns: minmax(14rem, 0.82fr) minmax(0, 1.18fr);
+        }
+      }
+      .seasonal-poster {
+        margin: 0;
+      }
+      .seasonal-poster a {
+        display: block;
+        border-radius: 0.5rem;
+        color: #ebc7a3;
+      }
+      .seasonal-poster a:focus-visible {
+        outline: 0.125rem solid #f7efe7;
+        outline-offset: 0.1875rem;
+      }
+      .seasonal-poster img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+      .seasonal-poster figcaption {
+        margin-top: 0.5rem;
+      }
+      .seasonal-poster-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-underline-offset: 0.15em;
+      }
+      .seasonal-poster-link:hover {
+        color: #f3d7b8;
+      }
+      .seasonal-card-compact {
+        gap: 0.35rem;
+      }
+      .seasonal-note {
+        margin: 0;
+        color: #d7b99a;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+      }
+      .seasonal-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .seasonal-actions .seasonal-cta {
+        margin-top: 0;
+      }
+      /* TEMPORADA — fin */
       .valores-card {
         position: relative;
         border-left: 0.1875rem solid rgba(182, 129, 80, 0.6);
@@ -2164,41 +2221,71 @@
           <p class="muted">
             Specialty coffee, drinks, and pastries designed to be enjoyed.
           </p>
-          <!-- TEMPORAL HALLOWEEN — inicio -->
-          <section class="seasonal-feature" aria-labelledby="halloween-feature-title">
+          <!-- TEMPORADA — bebidas -->
+          <section class="seasonal-feature" aria-labelledby="season-drinks-title">
             <p class="seasonal-kicker">Seasonal</p>
-            <h3 id="halloween-feature-title">Halloween on the menu</h3>
-            <p class="seasonal-lead">Halloween cookie and pumpkin and coffee loaf, while the season lasts.</p>
-            <div class="seasonal-cards">
-              <article class="seasonal-card">
-                <div class="image-placeholder seasonal-photo" data-seasonal-photo="cookie-halloween">
-                  <span class="seasonal-photo-pending">Photo coming</span>
+            <h3 id="season-drinks-title">Season drinks</h3>
+            <p class="seasonal-lead">Pumpkin spice latte and pumpkin spice chai, while the season lasts.</p>
+            <div class="seasonal-spotlight">
+              <figure class="seasonal-poster">
+                <a href="/marca/cartel-bebidas-temporada.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the season drinks poster PDF">
+                  <img
+                    src="/marca/cartel-bebidas-temporada.webp"
+                    alt="Tueste season drinks poster: Pumpkin Latte Coffee with double espresso, pumpkin milk and pumpkin spice, and Pumpkin Chai Latte with chai tea, pumpkin milk and pumpkin spice."
+                    width="1200"
+                    height="1658"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <a class="seasonal-poster-link" href="/marca/cartel-bebidas-temporada.pdf" target="_blank" rel="noopener noreferrer">Open poster (PDF)</a>
+                </figcaption>
+              </figure>
+              <div class="seasonal-offer">
+                <div class="seasonal-cards">
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Latte</h4>
+                      <p class="seasonal-price">3.90€</p>
+                    </div>
+                    <p class="seasonal-note">Double espresso, pumpkin milk and pumpkin spice.</p>
+                  </article>
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Latte XL</h4>
+                      <p class="seasonal-price">4.90€</p>
+                    </div>
+                  </article>
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Chai</h4>
+                      <p class="seasonal-price">3.90€</p>
+                    </div>
+                    <p class="seasonal-note">Chai tea, pumpkin milk and pumpkin spice.</p>
+                  </article>
+                  <article class="seasonal-card seasonal-card-compact">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin Spice Chai XL</h4>
+                      <p class="seasonal-price">4.90€</p>
+                    </div>
+                  </article>
                 </div>
-                <div class="seasonal-card-body">
-                  <h4>Halloween cookie</h4>
-                  <p class="seasonal-price">3.50€</p>
+                <div class="seasonal-actions">
+                  <button class="seasonal-cta" type="button" onclick="var tab=document.querySelector('[data-menu-tab=&quot;cafes&quot;]'); if (tab) tab.click();">See in Coffees</button>
+                  <button class="seasonal-cta" type="button" onclick="var tab=document.querySelector('[data-menu-tab=&quot;matcha&quot;]'); if (tab) tab.click();">See in Matcha &amp; Chai</button>
                 </div>
-              </article>
-              <article class="seasonal-card">
-                <div class="image-placeholder seasonal-photo" data-seasonal-photo="bizcocho-calabaza">
-                  <span class="seasonal-photo-pending">Photo coming</span>
-                </div>
-                <div class="seasonal-card-body">
-                  <h4>Pumpkin and coffee loaf</h4>
-                  <p class="seasonal-price">4.50€</p>
-                </div>
-              </article>
+              </div>
             </div>
-            <button class="seasonal-cta" type="button" onclick="var tab=document.querySelector('[data-menu-tab=&quot;sweets&quot;]'); if (tab) tab.click();">See in Sweets</button>
           </section>
-          <!-- TEMPORAL HALLOWEEN — fin -->
+          <!-- /TEMPORADA — bebidas -->
           <div class="menu-tabs" role="tablist" aria-label="Menu categories">
-            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Coffees</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai</button>
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Coffees<span class="seasonal-tab-mark">Seasonal</span></button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai<span class="seasonal-tab-mark">Seasonal</span></button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor">Our Cans: Sealed & Shaken</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="drinks">Drinks</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="savoury">Savoury</button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="sweets">Sweets<!-- TEMPORAL HALLOWEEN --><span class="seasonal-tab-mark">Halloween</span><!-- /TEMPORAL HALLOWEEN --></button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="sweets">Sweets</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="addons">Add-ons</button>
           </div>
           <div class="menu-grid" style="margin-top: 1.5rem">
@@ -2228,6 +2315,8 @@
             <div class="menu-panel" data-menu-group="cafes">
               <h3 class="menu-title">Milk coffees</h3>
               <div class="menu-list">
+                <div class="menu-row is-seasonal"><span>Pumpkin Spice Latte<span class="seasonal-tag">Seasonal</span></span><span class="menu-price">3.90€</span></div>
+                <div class="menu-row is-seasonal"><span>Pumpkin Spice Latte XL<span class="seasonal-tag">Seasonal</span></span><span class="menu-price">4.90€</span></div>
                 <div class="menu-row"><span>Cappuccino</span><span class="menu-price">3.40€</span></div>
                 <div class="menu-row"><span>Cappuccino XL</span><span class="menu-price">4.40€</span></div>
                 <div class="menu-row"><span>Latte</span><span class="menu-price">3.00€</span></div>
@@ -2311,6 +2400,8 @@
                 <div class="menu-row"><span>Iced Matcha Latte XL</span><span class="menu-price">6.00€</span></div>
                 <div class="menu-row"><span>Iced Chai Latte</span><span class="menu-price">4.80€</span></div>
                 <div class="menu-row"><span>Iced Chai Latte XL</span><span class="menu-price">5.50€</span></div>
+                <div class="menu-row is-seasonal"><span>Pumpkin Spice Chai<span class="seasonal-tag">Seasonal</span></span><span class="menu-price">3.90€</span></div>
+                <div class="menu-row is-seasonal"><span>Pumpkin Spice Chai XL<span class="seasonal-tag">Seasonal</span></span><span class="menu-price">4.90€</span></div>
                 <div class="menu-row"><span>Chai Latte</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Chai Latte XL</span><span class="menu-price">4.50€</span></div>
                 <div class="menu-row"><span>Chai Latte XXL</span><span class="menu-price">5.50€</span></div>
@@ -2416,8 +2507,6 @@
                 <div class="menu-row"><span>Pistachio & white chocolate cookie</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Lemon cookie</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Chocolate and espresso cookie</span><span class="menu-price">3.50€</span></div>
-                <!-- TEMPORAL HALLOWEEN -->
-                <div class="menu-row is-seasonal"><span>Halloween cookie<span class="seasonal-tag">Halloween</span></span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Lotus cookie</span><span class="menu-price">3.50€</span></div>
                 <div class="menu-row"><span>Orange cookie</span><span class="menu-price">3.50€</span></div>
               </div>
@@ -2427,8 +2516,7 @@
               <div class="menu-list">
                 <div class="menu-row"><span>Lemon and yoghurt loaf</span><span class="menu-price">4.00€</span></div>
                 <div class="menu-row"><span>Banana and chocolate loaf</span><span class="menu-price">4.00€</span></div>
-                <!-- TEMPORAL HALLOWEEN -->
-                <div class="menu-row is-seasonal"><span>Pumpkin and coffee loaf<span class="seasonal-tag">Halloween</span></span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row"><span>Pumpkin and coffee loaf</span><span class="menu-price">4.50€</span></div>
               </div>
             </div>
             <div class="menu-panel" data-menu-group="sweets">
