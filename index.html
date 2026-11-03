@@ -901,6 +901,9 @@
       .seasonal-card-compact {
         gap: 0.35rem;
       }
+      .seasonal-card-wide {
+        grid-column: 1 / -1;
+      }
       .seasonal-note {
         margin: 0;
         color: #d7b99a;
@@ -2244,8 +2247,8 @@
           <!-- TEMPORADA — bebidas -->
           <section class="seasonal-feature" aria-labelledby="temporada-destacado-titulo">
             <p class="seasonal-kicker">Temporada</p>
-            <h3 id="temporada-destacado-titulo">Bebidas de temporada</h3>
-            <p class="seasonal-lead">Pumpkin spice latte y pumpkin spice chai, mientras dure la temporada.</p>
+            <h3 id="temporada-destacado-titulo">De temporada</h3>
+            <p class="seasonal-lead">Pumpkin spice latte, pumpkin spice chai y bizcocho de calabaza y café, mientras dure la temporada.</p>
             <div class="seasonal-spotlight">
               <figure class="seasonal-poster">
                 <a href="marca/cartel-seasonal-drinks.pdf" target="_blank" rel="noopener noreferrer" aria-label="Abrir el cartel de bebidas de temporada en PDF">
@@ -2290,18 +2293,25 @@
                       <p class="seasonal-price">4,90 €</p>
                     </div>
                   </article>
+                  <article class="seasonal-card seasonal-card-compact seasonal-card-wide">
+                    <div class="seasonal-card-body">
+                      <h4>Bizcocho de calabaza y café</h4>
+                      <p class="seasonal-price">4,50 €</p>
+                    </div>
+                  </article>
                 </div>
                 <div class="seasonal-actions">
                   <button class="seasonal-cta" type="button" onclick="activateMenuTab('cafes')">Ver en Cafés</button>
                   <button class="seasonal-cta" type="button" onclick="activateMenuTab('matcha')">Ver en Matcha y Chai</button>
+                  <button class="seasonal-cta" type="button" onclick="activateMenuTab('dulces')">Ver en Dulces</button>
                 </div>
               </div>
             </div>
           </section>
           <!-- /TEMPORADA — bebidas -->
           <div class="menu-tabs" role="tablist" aria-label="Categorías de carta">
-            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes" onclick="activateMenuTab('cafes')">Cafés<span class="seasonal-tab-mark">Temporada</span></button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha" onclick="activateMenuTab('matcha')">Matcha & Chai<span class="seasonal-tab-mark">Temporada</span></button>
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes" onclick="activateMenuTab('cafes')">Cafés</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha" onclick="activateMenuTab('matcha')">Matcha & Chai</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor" onclick="activateMenuTab('autor')">Nuestras Latas: Selladas y Agitadas</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="bebidas" onclick="activateMenuTab('bebidas')">Refrescos bio & más</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="salados" onclick="activateMenuTab('salados')">Salados</button>
@@ -2549,7 +2559,7 @@
                   <div class="menu-list">
                     <div class="menu-row"><span>Bizcocho de limón y yogur</span><span class="menu-price">4.00€</span></div>
                     <div class="menu-row"><span>Bizcocho de plátano y chocolate</span><span class="menu-price">4.00€</span></div>
-                    <div class="menu-row"><span>Bizcocho de calabaza y café</span><span class="menu-price">4.50€</span></div>
+                    <div class="menu-row is-seasonal"><span>Bizcocho de calabaza y café<span class="seasonal-tag">Temporada</span></span><span class="menu-price">4.50€</span></div>
                   </div>
                 </div>
                 <div class="menu-panel">

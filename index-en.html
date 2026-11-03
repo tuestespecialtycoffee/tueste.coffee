@@ -889,6 +889,9 @@
       .seasonal-card-compact {
         gap: 0.35rem;
       }
+      .seasonal-card-wide {
+        grid-column: 1 / -1;
+      }
       .seasonal-note {
         margin: 0;
         color: #d7b99a;
@@ -2224,8 +2227,8 @@
           <!-- TEMPORADA — bebidas -->
           <section class="seasonal-feature" aria-labelledby="season-drinks-title">
             <p class="seasonal-kicker">Seasonal</p>
-            <h3 id="season-drinks-title">Seasonal drinks</h3>
-            <p class="seasonal-lead">Pumpkin spice latte and pumpkin spice chai, while the season lasts.</p>
+            <h3 id="season-drinks-title">In season</h3>
+            <p class="seasonal-lead">Pumpkin spice latte, pumpkin spice chai and pumpkin and coffee loaf, while the season lasts.</p>
             <div class="seasonal-spotlight">
               <figure class="seasonal-poster">
                 <a href="/marca/cartel-seasonal-drinks-en.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the seasonal drinks poster PDF">
@@ -2270,18 +2273,25 @@
                       <p class="seasonal-price">4.90€</p>
                     </div>
                   </article>
+                  <article class="seasonal-card seasonal-card-compact seasonal-card-wide">
+                    <div class="seasonal-card-body">
+                      <h4>Pumpkin and coffee loaf</h4>
+                      <p class="seasonal-price">4.50€</p>
+                    </div>
+                  </article>
                 </div>
                 <div class="seasonal-actions">
                   <button class="seasonal-cta" type="button" onclick="var tab=document.querySelector('[data-menu-tab=&quot;cafes&quot;]'); if (tab) tab.click();">See in Coffees</button>
                   <button class="seasonal-cta" type="button" onclick="var tab=document.querySelector('[data-menu-tab=&quot;matcha&quot;]'); if (tab) tab.click();">See in Matcha &amp; Chai</button>
+                  <button class="seasonal-cta" type="button" onclick="var tab=document.querySelector('[data-menu-tab=&quot;sweets&quot;]'); if (tab) tab.click();">See in Sweets</button>
                 </div>
               </div>
             </div>
           </section>
           <!-- /TEMPORADA — bebidas -->
           <div class="menu-tabs" role="tablist" aria-label="Menu categories">
-            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Coffees<span class="seasonal-tab-mark">Seasonal</span></button>
-            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai<span class="seasonal-tab-mark">Seasonal</span></button>
+            <button class="menu-tab-btn is-active" type="button" role="tab" aria-selected="true" data-menu-tab="cafes">Coffees</button>
+            <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="matcha">Matcha & Chai</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="autor">Our Cans: Sealed & Shaken</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="drinks">Drinks</button>
             <button class="menu-tab-btn" type="button" role="tab" aria-selected="false" data-menu-tab="savoury">Savoury</button>
@@ -2516,7 +2526,7 @@
               <div class="menu-list">
                 <div class="menu-row"><span>Lemon and yoghurt loaf</span><span class="menu-price">4.00€</span></div>
                 <div class="menu-row"><span>Banana and chocolate loaf</span><span class="menu-price">4.00€</span></div>
-                <div class="menu-row"><span>Pumpkin and coffee loaf</span><span class="menu-price">4.50€</span></div>
+                <div class="menu-row is-seasonal"><span>Pumpkin and coffee loaf<span class="seasonal-tag">Seasonal</span></span><span class="menu-price">4.50€</span></div>
               </div>
             </div>
             <div class="menu-panel" data-menu-group="sweets">
